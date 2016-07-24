@@ -14,7 +14,7 @@
     <script type="text/javascript" src="/resources/js/datePopup.js"></script>
     <script type="text/javascript" src="/resources/js/vote.js" ></script>
     
-    <title>투표 등록111</title>
+    <title>투표 등록22222</title>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
