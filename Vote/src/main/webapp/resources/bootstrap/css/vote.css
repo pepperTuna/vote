@@ -1,0 +1,47 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+#content{
+    padding-right:10%;
+    padding-left:10%;
+}
+
+ol li{
+    font-size:30px;
+}
+
+.question-text{
+    width:80%;
+    height:50px;
+    font-size:30px;
+    font-family: 'Nanum Gothic', serif;
+}
+
+.choice-text{
+    width:75%;
+    height:50px;
+    font-size:30px;
+    font-family: 'Nanum Gothic', serif;
+}
+
+input[type="file"] {
+    width: 0px;
+    height: 0px;
+}
+
+.question-area{
+    margin-bottom:70px;
+}
+
+.question-choice{
+    margin-top:10px;
+}
+
+.choice-area{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+img{
+    width:28px;
+    height:28px;
+}
