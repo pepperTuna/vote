@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartRequest;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value="/")
+@RequestMapping(value="/vote")
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -33,21 +33,16 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("55455Welcome home! The client locale is {}.", locale);
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
-		System.out.println("");
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "vote";
 	}
-	@RequestMapping(value = "/test", method = RequestMethod.POST)
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String home(HttpServletRequest request){
-		String path = "c:/documents/";
-		
 		return "vote";
 	}
 	
