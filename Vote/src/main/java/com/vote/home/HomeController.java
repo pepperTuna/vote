@@ -33,7 +33,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("1111111Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -47,7 +47,6 @@ public class HomeController {
 	@RequestMapping(value = "/test", method = RequestMethod.POST)
 	public String home(HttpServletRequest request){
 		String path = "c:/documents/";
-
 		
 		return "vote";
 	}
