@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.vote.home">
+	<logger name="com.vote.*">
 		<level value="info" />
 	</logger>
 	
