@@ -9,7 +9,7 @@ public interface VoteDAO {
 	  
 	  public VoteVO readVote(Integer v_idx) throws Exception;
 	  
-	  public List<VoteVO> readVoteList(String v_writer) throws Exception;
+	  public List<VoteVO> listVote() throws Exception;
 
 	  public void updateVote(VoteVO vo) throws Exception;
 

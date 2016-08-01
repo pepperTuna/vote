@@ -1,10 +1,16 @@
 package com.vote.service;
 
 import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Service;
+
 import com.vote.dao.VoteDAO;
 import com.vote.domain.VoteVO;
 
+@Service
 public class VoteServiceImpl implements VoteService {
 
 	@Inject
@@ -21,8 +27,8 @@ public class VoteServiceImpl implements VoteService {
 	}
 
 	@Override
-	public List<VoteVO> readVoteList(String v_writer) throws Exception {
-		return dao.readVoteList(v_writer);
+	public List<VoteVO> listVote() throws Exception {
+		return dao.listVote();
 	}
 
 	@Override
@@ -33,6 +39,12 @@ public class VoteServiceImpl implements VoteService {
 	@Override
 	public void deleteVote(Integer v_idx) throws Exception {
 		dao.deleteVote(v_idx);
+	}
+
+	@Override
+	public void createVote(HttpServletRequest request, String uploadPath) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

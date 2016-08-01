@@ -52,18 +52,4 @@ public class VoteController {
       
       return "listVote";
    }
-   
-   @RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
-   public void uploadForm() {
-   }
-
-   @RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
-   public String uploadForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-      
-      MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-
-      voteQuestionService.uploadForm(multipartRequest, uploadPath);
-      
-      return "uploadForm"; // uploadForm.jsp
-   }
 }

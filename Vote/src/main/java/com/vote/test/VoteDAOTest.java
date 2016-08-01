@@ -21,8 +21,8 @@ public class VoteDAOTest {
 	@Test
 	public void createVote() throws Exception {
 		VoteVO vo = new VoteVO();
-		vo.setV_WRITER("test00");
-		vo.setV_TITLE("test_title");
+		vo.setvWriter("test00");
+		vo.setvTitle("test_title");
 		
 		dao.createVote(vo);
 	}

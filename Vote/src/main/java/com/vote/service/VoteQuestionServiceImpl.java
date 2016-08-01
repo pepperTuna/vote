@@ -18,7 +18,8 @@ import com.vote.domain.VoteQuestionVO;
 
 @Service
 public class VoteQuestionServiceImpl implements VoteQuestionService {
-private static final Logger logger = LoggerFactory.getLogger(VoteQuestionServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(VoteQuestionServiceImpl.class);
 
 	@Inject
 	private VoteQuestionDAO dao;
@@ -49,39 +50,7 @@ private static final Logger logger = LoggerFactory.getLogger(VoteQuestionService
 	}
 		
 	@Override
-	public void uploadForm(MultipartHttpServletRequest request, String uploadPath) throws Exception {
-	      
-		int questionLen = request.getParameter("vote_length")!=null ? Integer.parseInt(request.getParameter("vote_length")) : 0;
-		String choiceLen = request.getParameter("choice_length").toString();
-		String[] choice = choiceLen.split("\\|");
-	
-		for (int i = 0; i < questionLen; i++) {
-	
-			for (int j = 0; j < Integer.parseInt(choice[i]); j++) {
-	
-				String choiceFile = "choice-file-" + (i+1) + "-" + (j+1);
-				MultipartFile file = request.getFile(choiceFile);
-	
-				if (file != null) {
-	   
-					if (!file.isEmpty()) {
-	
-						logger.info("originalName: " + file.getOriginalFilename());
-						logger.info("size: " + file.getSize());
-						logger.info("contentType: " + file.getContentType());
-	  
-					  //uploadFile(file.getOriginalFilename(), file.getBytes());
-					  uploadFile(choiceFile + "_" + file.getOriginalFilename() ,file.getBytes(), uploadPath);
-					  
-					  //db
-					}
-				}
-			}
-		}
-	}
-	
-	@Override
-	public void uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
+	public String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
 	      
 		UUID uid = UUID.randomUUID();
 	
@@ -90,6 +59,8 @@ private static final Logger logger = LoggerFactory.getLogger(VoteQuestionService
 		File target = new File(uploadPath, savedName);
 		
 		FileCopyUtils.copy(fileData, target);
+		
+		return uploadPath + savedName;
 	      
 	}
 }

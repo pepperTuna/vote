@@ -1,7 +1,10 @@
 package com.vote.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.vote.domain.VoteResultVO;
 
+@Repository
 public class VoteResultDAOImpl implements VoteResultDAO {
 
 	@Override

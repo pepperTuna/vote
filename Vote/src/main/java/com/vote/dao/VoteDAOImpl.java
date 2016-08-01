@@ -26,8 +26,8 @@ public class VoteDAOImpl implements VoteDAO {
 	}
 
 	@Override
-	public List<VoteVO> readVoteList(String v_writer) throws Exception {
-		return session.selectList(namespace + ".readVoteList");
+	public List<VoteVO> listVote() throws Exception {
+		return session.selectList(namespace + ".listVote");
 	}
 	
 	@Override
