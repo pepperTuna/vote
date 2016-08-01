@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vote.mapper.VoteMapper">
+
+	<!-- 설문 생성 -->
+	<insert id="createVote">
+		insert into VOTE (V_WRITER, V_TITLE)
+		values (#{V_WRITER}, #{V_TITLE})
+	</insert>
+
+	<!-- 질문, 선택지 생성 -->
+	<insert id="createQuestion">
+		insert into VOTE_QUESTION (V_IDX, Q_NO, C_NO, CONTENT, ATTACH, ATTACH_TYPE)
+		values (#{V_IDX}, #{Q_NO}, #{C_NO}, #{CONTENT}, #{ATTACH}, #{ATTACH_TYPE})
+	</insert>
+	
+	<!-- 설문 결과 생성 -->
+	<insert id="createResult">
+		insert into VOTE_RESULT (R_USER, V_NO, Q_NO, C_NO)
+		values (#{R_USER}, #{V_NO}, #{Q_NO}, #{C_NO})
+	</insert>
+	
+	<!-- 설문 출력 -->
+	<select id="readVote" resultType="com.vote.domain.VoteVO">
+		select V_IDX, V_WRITER, V_TITLE, V_STATUS, V_UPDATE_DATE
+		from VOTE
+		where V_IDX=#{V_IDX}
+	</select>
+
+	<!-- 전체 설문 출력 -->
+	<select id="readVoteList" resultType="com.vote.domain.VoteVO">
+	<![CDATA[
+		select V_IDX, V_WRITER, V_TITLE, V_STATUS, V_UPDATE_DATE
+		from VOTE
+		where V_IDX > 0 and V_WRITER=#{V_WRITER}
+		ordry by V_IDX desc, V_UPDATE_DATE desc
+	]]>
+	</select>
+	
+	<!-- 질문, 선택지 출력 -->
+	<select id="readQuestion" resultType="com.vote.domain.QuestionVO">
+		select V_IDX, Q_NO, C_NO, CONTENT, ATTACH, ATTACH_TYPE
+		from VOTE_QUESTION 
+		where V_IDX=#{V_IDX}
+		order by V_IDX asc
+	</select>
+	
+	<!-- 설문 결과 출력 -->
+	<select id="readResult" resultType="com.vote.domain.ResultVO">
+		select R_USER, V_NO, Q_NO, C_NO, V_UPDATE_DATE
+		from VOTE_RESULT
+		where R_USER=#{R_USER}
+		order by V_NO desc, V_UPDATE_DATE desc
+	</select>
+	
+	<!-- 설문 제목 수정 -->
+	<update id="updateVote">
+		update VOTE set V_TITLE=#{V_TITLE}
+		where V_IDX=#{V_IDX}
+	</update>
+
+	<!-- 질문, 선택지 내용 수정 -->
+	<update id="updateQuestion">
+		update VOTE_QUESTION
+		set CONTENT=#{CONTENT}, ATTACH=#{ATTACH}, ATTACH_TYPE=#{ATTACH_TYPE}
+		where V_IDX=#{V_IDX} and Q_NO=#{Q_NO}, C_NO=#{C_NO}
+	</update>
+	
+	<!-- 설문 결과 수정 -->
+	<update id="updateResult">
+		update VOTE_RESULT
+		set C_NO = #{C_NO}
+		where R_USER=#{R_USER} and V_NO=#{V_NO} and C_NO=#{C_NO}
+	</update>
+	<!-- 설문 삭제 -->
+	<delete id="deleteVote">
+		update VOTE set ACTIVE = 'N'
+	</delete>
+
+	<!-- 질문 삭제 -->
+	<delete id="deleteQusetion">
+		delete from VOTE_QUESTION
+		where V_IDX=#{V_IDX} and Q_NO=#{Q_NO}
+	</delete>
+	
+	<!-- 선택지 삭제 -->
+	<delete id="deleteChoice">
+		delete from VOTE_QUESTION
+		where V_IDX=#{V_IDX} and Q_NO=#{Q_NO} and C_NO=#{C_NO}
+	</delete>
+	
+	<!-- 설문 결과 삭제 -->
+	<delete id="deleteResult">
+		delete from VOTE_RESULT
+		where R_USER=#{R_USER} and Q_NO=#{Q_NO} and C_NO=#{C_NO}
+	</delete>
+</mapper>
