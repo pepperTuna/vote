@@ -6,9 +6,9 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.vote.domain.QuestionVO;
+import com.vote.domain.VoteQuestionVO;
 
-public class QuestionDAOImpl implements QuestionDAO {
+public class VoteQuestionDAOImpl implements VoteQuestionDAO {
 	
 	@Inject
 	private SqlSession session;
@@ -16,27 +16,27 @@ public class QuestionDAOImpl implements QuestionDAO {
 	private static String namespace = "com.vote.mapper.VoteMapper";
 
 	@Override
-	public void createQuestion(QuestionVO vo) throws Exception {
+	public void createQuestion(VoteQuestionVO vo) throws Exception {
 		session.insert(namespace + ".createQuestion", vo);
 	}
 
 	@Override
-	public List<QuestionVO> readQuestion(Integer v_idx) throws Exception {
+	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception {
 	    return session.selectList(namespace + ".readQuestion", v_idx);
 	}
 
 	@Override
-	public void updateQuestion(QuestionVO vo) throws Exception {
+	public void updateQuestion(VoteQuestionVO vo) throws Exception {
 		session.update(namespace + ".updateQuestion", vo);
 	}
 
 	@Override
-	public void deleteQuestion(QuestionVO vo) throws Exception {
+	public void deleteQuestion(VoteQuestionVO vo) throws Exception {
 		session.delete(namespace + ".deleteQuestion", vo);
 	}
 
 	@Override
-	public void deleteChoice(QuestionVO vo) throws Exception {
+	public void deleteChoice(VoteQuestionVO vo) throws Exception {
 		session.delete(namespace + ".deleteQuestion", vo);
 	}
 /*	

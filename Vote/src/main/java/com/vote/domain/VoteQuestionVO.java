@@ -1,6 +1,6 @@
 package com.vote.domain;
 
-public class QuestionVO {
+public class VoteQuestionVO {
 
 	private Integer V_IDX;
 	private Integer Q_NO;

@@ -1,6 +1,6 @@
 package com.vote.domain;
 
-public class ResultVO {
+public class VoteResultVO {
 
 	private String R_USER;
 	private Integer V_NO;

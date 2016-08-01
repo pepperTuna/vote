@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.vote.service.QuestionService;
+import com.vote.service.VoteQuestionService;
 
 @Controller
 @RequestMapping("/*")
@@ -24,7 +24,7 @@ public class VoteController {
    private String uploadPath;
    
    @Inject
-   private QuestionService service;
+   private VoteQuestionService service;
 
    @RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
    public void uploadForm() {

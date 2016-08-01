@@ -13,38 +13,38 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.vote.dao.QuestionDAO;
-import com.vote.domain.QuestionVO;
+import com.vote.dao.VoteQuestionDAO;
+import com.vote.domain.VoteQuestionVO;
 
 @Service
-public class QuestionServiceImpl implements QuestionService {
-private static final Logger logger = LoggerFactory.getLogger(QuestionServiceImpl.class);
+public class VoteQuestionServiceImpl implements VoteQuestionService {
+private static final Logger logger = LoggerFactory.getLogger(VoteQuestionServiceImpl.class);
 
 	@Inject
-	private QuestionDAO dao;
+	private VoteQuestionDAO dao;
 
 	@Override
-	public void createQuestion(QuestionVO vo) throws Exception {
+	public void createQuestion(VoteQuestionVO vo) throws Exception {
 		dao.createQuestion(vo);
 	}
 	
 	@Override
-	public List<QuestionVO> readQuestion(Integer v_idx) throws Exception {
+	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception {
 		return dao.readQuestion(v_idx);
 	}
 	
 	@Override
-	public void updateQuestion(QuestionVO vo) throws Exception {
+	public void updateQuestion(VoteQuestionVO vo) throws Exception {
 		dao.updateQuestion(vo);	
 	}
 	
 	@Override
-	public void deleteQuestion(QuestionVO vo) throws Exception {
+	public void deleteQuestion(VoteQuestionVO vo) throws Exception {
 		dao.deleteQuestion(vo);
 	}
 	
 	@Override
-	public void deleteChoice(QuestionVO vo) throws Exception {
+	public void deleteChoice(VoteQuestionVO vo) throws Exception {
 		dao.deleteChoice(vo);
 	}
 		
