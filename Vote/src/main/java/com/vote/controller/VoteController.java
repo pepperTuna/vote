@@ -47,9 +47,9 @@ public class VoteController {
    
    @RequestMapping(value = "/createVote", method = RequestMethod.POST)
    public String createVote(HttpServletRequest request, HttpServletResponse response) throws Exception {
-      
-      voteService.createVote(request, uploadPath);
-      
+	   voteService.createVote(request);
+	   voteQuestionService.createQuestion(request, uploadPath);
+
       return "listVote";
    }
 }

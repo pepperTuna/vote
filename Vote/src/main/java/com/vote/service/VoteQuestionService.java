@@ -2,13 +2,15 @@ package com.vote.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.vote.domain.VoteQuestionVO;
 
 public interface VoteQuestionService {
 	
-	public void createQuestion(VoteQuestionVO vo) throws Exception;
+	public void createQuestion(HttpServletRequest request, String uploadPath) throws Exception;
 	  
 	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception;
 	  

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +26,8 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 	private VoteQuestionDAO dao;
 
 	@Override
-	public void createQuestion(VoteQuestionVO vo) throws Exception {
-		dao.createQuestion(vo);
+	public void createQuestion(HttpServletRequest request, String uploadPath) throws Exception {
+		
 	}
 	
 	@Override

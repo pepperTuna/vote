@@ -8,8 +8,6 @@ import com.vote.domain.VoteVO;
 
 public interface VoteService {
 
-	public void createVote(VoteVO vo) throws Exception;
-	  
 	public VoteVO readVote(Integer v_idx) throws Exception;
 	
 	public List<VoteVO> listVote() throws Exception;
@@ -18,6 +16,6 @@ public interface VoteService {
 
 	public void deleteVote(Integer v_idx) throws Exception;
 
-	public void createVote(HttpServletRequest request, String uploadPath) throws Exception;
+	public void createVote(HttpServletRequest request) throws Exception;
 	
 }
