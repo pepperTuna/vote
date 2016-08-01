@@ -22,7 +22,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.vote.home" />
+	<context:component-scan base-package="com.vote.controller" />
 	
 	
 	<beans:bean id="multipartResolver"
