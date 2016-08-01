@@ -8,44 +8,44 @@ public class VoteResultVO {
 	private Integer cNo;
 	private String vUpdateDate;
 	
-	public String getR_USER() {
+	public String getrUser() {
 		return rUser;
 	}
-	
-	public void setR_USER(String r_USER) {
-		rUser = r_USER;
+
+	public void setrUser(String rUser) {
+		this.rUser = rUser;
 	}
-	
-	public Integer getV_NO() {
+
+	public Integer getvNo() {
 		return vNo;
 	}
-	
-	public void setV_NO(Integer v_NO) {
-		vNo = v_NO;
+
+	public void setvNo(Integer vNo) {
+		this.vNo = vNo;
 	}
-	
-	public Integer getQ_NO() {
+
+	public Integer getqNo() {
 		return qNo;
 	}
-	
-	public void setQ_NO(Integer q_NO) {
-		qNo = q_NO;
+
+	public void setqNo(Integer qNo) {
+		this.qNo = qNo;
 	}
-	
-	public Integer getC_NO() {
+
+	public Integer getcNo() {
 		return cNo;
 	}
-	
-	public void setC_NO(Integer c_NO) {
-		cNo = c_NO;
+
+	public void setcNo(Integer cNo) {
+		this.cNo = cNo;
 	}
-	
-	public String getV_UPDATE_DATE() {
+
+	public String getvUpdateDate() {
 		return vUpdateDate;
 	}
-	
-	public void setV_UPDATE_DATE(String v_UPDATE_DATE) {
-		vUpdateDate = v_UPDATE_DATE;
+
+	public void setvUpdateDate(String vUpdateDate) {
+		this.vUpdateDate = vUpdateDate;
 	}
 
 	@Override
