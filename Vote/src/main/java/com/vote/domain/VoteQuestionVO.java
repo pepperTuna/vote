@@ -2,66 +2,78 @@ package com.vote.domain;
 
 public class VoteQuestionVO {
 
-	private Integer V_IDX;
-	private Integer Q_NO;
-	private Integer C_NO;
-	private String CONTENT;
-	private String ATTACH;
-	private String ATTACH_TYPE;
+	private Integer vIdx;
+	private Integer qNo;
+	private Integer cNo;
+	private String content;
+	private String attach;
+	private String attachType;
 	
-	
-	public Integer getV_IDX() {
-		return V_IDX;
+
+	public Integer getvIdx() {
+		return vIdx;
 	}
 
-	public void setV_IDX(Integer v_IDX) {
-		V_IDX = v_IDX;
+
+	public void setvIdx(Integer vIdx) {
+		this.vIdx = vIdx;
 	}
 
-	public Integer getQ_NO() {
-		return Q_NO;
+
+	public Integer getqNo() {
+		return qNo;
 	}
 
-	public void setQ_NO(Integer q_NO) {
-		Q_NO = q_NO;
+
+	public void setqNo(Integer qNo) {
+		this.qNo = qNo;
 	}
 
-	public Integer getC_NO() {
-		return C_NO;
+
+	public Integer getcNo() {
+		return cNo;
 	}
 
-	public void setC_NO(Integer c_NO) {
-		C_NO = c_NO;
+
+	public void setcNo(Integer cNo) {
+		this.cNo = cNo;
 	}
 
-	public String getCONTENT() {
-		return CONTENT;
+
+	public String getContent() {
+		return content;
 	}
 
-	public void setCONTENT(String cONTENT) {
-		CONTENT = cONTENT;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public String getATTACH() {
-		return ATTACH;
+
+	public String getAttach() {
+		return attach;
 	}
 
-	public void setATTACH(String aTTACH) {
-		ATTACH = aTTACH;
+
+	public void setAttach(String attach) {
+		this.attach = attach;
 	}
 
-	public String getATTACH_TYPE() {
-		return ATTACH_TYPE;
+
+	public String getAttachType() {
+		return attachType;
 	}
 
-	public void setATTACH_TYPE(String aTTACH_TYPE) {
-		ATTACH_TYPE = aTTACH_TYPE;
+
+	public void setAttachType(String attachType) {
+		this.attachType = attachType;
 	}
+
 
 	@Override
 	public String toString() {
-		return "QuestionVO [V_IDX=" + V_IDX + ", Q_NO=" + Q_NO + ", C_NO="
-				+ C_NO + ", CONTENT=" + CONTENT + ", ATTACH=" + ATTACH
-				+ ", ATTACH_TYPE=" + ATTACH_TYPE + "]";
+		return "QuestionVO [vIdx=" + vIdx + ", qNo=" + qNo + ", cNo="
+				+ cNo + ", content=" + content + ", attach=" + attach
+				+ ", attachType=" + attachType + "]";
 	}
 }
