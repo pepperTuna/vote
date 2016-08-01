@@ -3,7 +3,7 @@ package com.vote.domain;
 import java.util.Date;
 
 public class VoteVO {
-	
+
 	private Integer vIdx;
 	private String vWriter;
 	private String vTitle;
@@ -11,53 +11,52 @@ public class VoteVO {
 	private String vStatus;
 	private Date vUpdateDate;
 	
-		
-	public Integer getV_IDX() {
+	public Integer getvIdx() {
 		return vIdx;
 	}
-
-	public void setV_IDX(Integer v_IDX) {
-		vIdx = v_IDX;
+	
+	public void setvIdx(Integer vIdx) {
+		this.vIdx = vIdx;
 	}
-
-	public String getV_WRITER() {
+	
+	public String getvWriter() {
 		return vWriter;
 	}
-
-	public void setV_WRITER(String v_WRITER) {
-		vWriter = v_WRITER;
+	
+	public void setvWriter(String vWriter) {
+		this.vWriter = vWriter;
 	}
-
-	public String getV_TITLE() {
+	
+	public String getvTitle() {
 		return vTitle;
 	}
-
-	public void setV_TITLE(String v_TITLE) {
-		vTitle = v_TITLE;
+	
+	public void setvTitle(String vTitle) {
+		this.vTitle = vTitle;
 	}
-
-	public String getV_ACTIVE() {
+	
+	public String getvActive() {
 		return vActive;
 	}
-
-	public void setV_ACTIVE(String v_ACTIVE) {
-		vActive = v_ACTIVE;
+	
+	public void setvActive(String vActive) {
+		this.vActive = vActive;
 	}
-
-	public String getV_STATUS() {
+	
+	public String getvStatus() {
 		return vStatus;
 	}
-
-	public void setV_STATUS(String v_STATUS) {
-		vStatus = v_STATUS;
+	
+	public void setvStatus(String vStatus) {
+		this.vStatus = vStatus;
 	}
-
-	public Date getV_UPDATE_DATE() {
+	
+	public Date getvUpdateDate() {
 		return vUpdateDate;
 	}
-
-	public void setV_UPDATE_DATE(Date v_UPDATE_DATE) {
-		vUpdateDate = v_UPDATE_DATE;
+	
+	public void setvUpdateDate(Date vUpdateDate) {
+		this.vUpdateDate = vUpdateDate;
 	}
 
 	@Override
