@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.vote.service.VoteService;
 import com.vote.service.VoteQuestionService;
 
 @Controller
@@ -24,8 +27,32 @@ public class VoteController {
    private String uploadPath;
    
    @Inject
-   private VoteQuestionService service;
+   private VoteService voteService;
+   
+   @Inject
+   private VoteQuestionService voteQuestionService;
 
+   @RequestMapping(value = "/readVote", method = RequestMethod.GET)
+   public String readVote(@RequestParam("vIdx") int vIdx, Model model) throws Exception {
+	   model.addAttribute(voteService.readVote(vIdx));
+	   model.addAttribute("list", voteQuestionService.readQuestion(vIdx));
+	   
+	   return "voteView";
+   }
+   
+   @RequestMapping(value = "/listVote", method = RequestMethod.GET)
+   public void listVote(Model model) throws Exception {
+      model.addAttribute("list", voteService.listVote());
+   }
+   
+   @RequestMapping(value = "/createVote", method = RequestMethod.POST)
+   public String createVote(HttpServletRequest request, HttpServletResponse response) throws Exception {
+      
+      voteService.createVote(request, uploadPath);
+      
+      return "listVote";
+   }
+   
    @RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
    public void uploadForm() {
    }
@@ -35,7 +62,7 @@ public class VoteController {
       
       MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
-      service.uploadForm(multipartRequest, uploadPath);
+      voteQuestionService.uploadForm(multipartRequest, uploadPath);
       
       return "uploadForm"; // uploadForm.jsp
    }
