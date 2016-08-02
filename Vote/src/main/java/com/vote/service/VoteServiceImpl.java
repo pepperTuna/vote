@@ -47,9 +47,6 @@ public class VoteServiceImpl implements VoteService {
 		String[] choice = choiceLen.split("\\|");
 
 		for (int i = 0; i < questionLen; i++) {
-			VoteVO voteVo = new VoteVO();
-			voteVo.setvTitle("");
-			voteVo.setvWriter("");
 
 			for (int j = 0; j < Integer.parseInt(choice[i]); j++) {
 				

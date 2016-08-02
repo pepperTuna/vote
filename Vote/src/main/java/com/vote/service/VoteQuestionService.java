@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
 import com.vote.domain.VoteQuestionVO;
 
 public interface VoteQuestionService {
