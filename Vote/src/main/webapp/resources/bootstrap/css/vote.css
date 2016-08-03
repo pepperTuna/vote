@@ -9,6 +9,13 @@ ol li{
     font-size:30px;
 }
 
+.vote-text{
+    width:95%;
+    height:50px;
+    font-size:30px;
+    font-family: 'Nanum Gothic', serif;
+}
+
 .question-text{
     width:80%;
     height:50px;

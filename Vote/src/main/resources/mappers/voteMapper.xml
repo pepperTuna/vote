@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="listVote" resultType="com.vote.domain.VoteVO">
 	<![CDATA[
-		select vIdx, vWriter, vTitle, vUpdateDate
+		select vIdx, vWriter, vTitle, vUpdateDate, vStatus
 		from VOTE
 		where vIdx > 0 and vActive = "Y"
 		order by vIdx desc, vUpdateDate desc

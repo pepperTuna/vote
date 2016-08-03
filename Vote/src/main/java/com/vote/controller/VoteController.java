@@ -37,7 +37,7 @@ public class VoteController {
 	   model.addAttribute(voteService.readVote(vIdx));
 	   model.addAttribute("list", voteQuestionService.readQuestion(vIdx));
 	   
-	   return "voteView";
+	   return "readVote";
    }
    
    @RequestMapping(value = "/listVote", method = RequestMethod.GET)

@@ -14,6 +14,7 @@
 <div id='container'>
     <div id='content'>
 	<form name='vote' action='/uploadForm' method='POST' enctype='multipart/form-data'>
+			<input type='text' class='vote-text' placeholder='설문 제목을 입력하세요.'/>
             <ol id='question'>
                 <li class='question-area'>
                     <input type='text' class='question-text' placeholder='질문을 입력하세요.'/>

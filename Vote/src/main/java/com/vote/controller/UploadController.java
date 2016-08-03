@@ -1,4 +1,4 @@
-/*package com.vote.controller;
+package com.vote.controller;
 
 import java.io.File;
 import java.util.UUID;
@@ -99,5 +99,4 @@ public class UploadController {
 
 		return "uploadResult";
 	}
-  
- */
+*/
