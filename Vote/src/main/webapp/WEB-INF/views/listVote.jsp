@@ -28,7 +28,7 @@
 				</c:if>
 			</c:forEach>
 			</table>
-		
+
 			<h2>완료된 설문</h2>
 			<table class="table table-hover">
 			<c:forEach items="${list}" var="voteVO">

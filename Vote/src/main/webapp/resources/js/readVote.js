@@ -15,4 +15,8 @@ $(document).ready(function(){
 			}
 		})
 	})
+	
+	$('#btn_reset').on('click',function(e) {
+		$("input:radio[name*='choice']").removeAttr('checked');
+	})
 });
