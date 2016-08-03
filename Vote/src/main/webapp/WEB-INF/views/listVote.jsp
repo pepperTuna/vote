@@ -45,7 +45,7 @@
 			</c:forEach>
 		</table>
 		<button type="button" class="btn btn-info">설문 관리</button>
-		<button type="button" class="btn btn-primary">설문지 만들기</button>
+		<a href="/uploadForm"><button type="button" class="btn btn-primary">설문지 만들기</button></a>
 		</div>
 	</body>
 </html>
