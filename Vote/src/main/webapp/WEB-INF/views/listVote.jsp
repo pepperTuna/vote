@@ -39,13 +39,13 @@
 					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vUpdateDate}" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><a href="#">${voteVO.vTitle}</a></td>
+					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vIdx}">${voteVO.vTitle}</a></td>
 				</tr>
 				</c:if>
 			</c:forEach>
-		</table>
-		<button type="button" class="btn btn-info">설문 관리</button>
-		<a href="/uploadForm"><button type="button" class="btn btn-primary">설문지 만들기</button></a>
+			</table>
+			<a href=#><button type="button" class="btn btn-info">설문 관리</button></a>
+			<a href="/uploadForm"><button type="button" class="btn btn-primary">설문지 만들기</button></a>
 		</div>
 	</body>
 </html>

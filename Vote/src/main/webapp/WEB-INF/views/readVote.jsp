@@ -13,8 +13,10 @@
 	<title>${voteVO.vTitle}</title>
 </head>
 <body>
-
 	<div class='container'>
+		<div class="row h5">
+			<br><br><br>빈 공 간<br><br><br>
+		</div>
 		<div class="row h5">
 			<div class="col-md-2"><strong>설문번호</strong></div>
 			<div class="col-md-10">${voteVO.vIdx}</div><br><br>
@@ -23,8 +25,10 @@
 			<div class="col-md-2"><strong>등록 날짜</strong></div>
 			<div class="col-md-10"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${voteVO.vUpdateDate}"></fmt:formatDate></div><br><br>
 		</div>
+		<a href="/listVote"><button type="button" class="btn btn-primary">설문 목록으로</button></a>
 		<hr size="50px">
 		<h3>${voteVO.vTitle}</h3><br>
+		<div class="alert alert-info" role="alert">썸네일을 클릭해 미리보기를 활성화 시킬 수 있습니다.</div>
 		<div class='col-md-12'>
 			<c:forEach items ="${list}" var="voteQuestionVO">
 				<dl>
@@ -36,7 +40,7 @@
 					<c:otherwise>
 						<dd><input type='radio' name='choice-${voteQuestionVO.vIdx}-${voteQuestionVO.qNo}-${voteQuestionVO.cNo}'>${voteQuestionVO.content}
 						<c:if test="${voteQuestionVO.attach ne null }">
-							<a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title='제목이 들어가는 부분' data-content=""><img src='${voteQuestionVO.attach}' class="img-thumbnail" width="50"></a>
+							<a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content=""><img src='${voteQuestionVO.attach}' class="img-thumbnail" width="50"></a>
 						</c:if>
 						</dd>
 					</c:otherwise>																														 
