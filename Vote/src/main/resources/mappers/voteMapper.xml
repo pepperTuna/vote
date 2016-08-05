@@ -25,14 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 설문 출력 -->
 	<select id="readVote" resultType="com.vote.domain.VoteVO">
-		select vIdx, vWriter, vTitle, vStatus, vUpdateDate
+		select vIdx, vWriter, vTitle, vActive, vStatus, vUpdateDate
 		from VOTE
 		where vIdx=#{vIdx}
 	</select>
 	
 	<select id="listVote" resultType="com.vote.domain.VoteVO">
 	<![CDATA[
-		select vIdx, vWriter, vTitle, vUpdateDate, vStatus
+		select vIdx, vWriter, vTitle, vStatus, vUpdateDate
 		from VOTE
 		where vIdx > 0 and vActive = "Y"
 		order by vIdx desc, vUpdateDate desc

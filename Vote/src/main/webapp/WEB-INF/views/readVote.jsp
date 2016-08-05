@@ -31,6 +31,13 @@
 				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 				 썸네일을 누르고 있으면 <strong>미리보기가 활성화</strong>됩니다.
 			</div>
+
+			<c:if test="${voteVO.vStatus eq '2'}">
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+				 이 설문은 이미 <strong>조사기간이 만료</strong>된 설문입니다.				
+			</div>
+			</c:if>
 			<div class='col-md-12'>
 				<c:forEach items ="${list}" var="voteQuestionVO">
 					<dl>
