@@ -87,6 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 설문 삭제 -->
 	<delete id="deleteVote">
 		update VOTE set ACTIVE = 'N'
+		where vIdx=#{vIdx}
 	</delete>
 
 	<!-- 질문 삭제 -->

@@ -1,64 +1,61 @@
-/**
- * Created by jbkim on 2016-07-11.
- */
 var Vote = function(question_no) {
     this.question_no = question_no;
     this.quetion_title = new String();
     this.choice = new Array();
     this.file = new Array();
 };
+
 Vote.prototype = {
-    setQuestionTitle:function(question_title){
+    setQuestionTitle:function(question_title) {
         this.question_title = question_title;
     },
-    getQuestionTitle:function(){
+    getQuestionTitle:function() {
         return this.question_title;
     },
-    setChoice:function(choice){
+    setChoice:function(choice) {
         this.choice.push(choice);
     },
     getChoice:function() {
         return this.choice;
     },
-    setFile:function(file){
+    setFile:function(file) {
         this.file.push(file);
     },
-    getFile:function(){
+    getFile:function() {
         return this.file;
     }
 };
+
 Vote.prototype.constructor = Vote;
 
 
 function createQtxtbox() {
 
-    $('#question').append("<li class='question-area'> ");
+    $('#question').append("<li class='question-area'>");
     $('#question .question-area').last()
-        .append("<input type='text' class='question-text' placeholder='질문을 입력하세요.'/> ")
-        .append("<img src='../resources/image/img_plus.png' class='add-question'/> ")
-        .append("<img src='../resources/image/img_remove.png' class='remove-question'/> ")
-        .append("<ol class='question-choice'> ");
+        .append("<input type='text' class='question-text' placeholder='질문을 입력하세요.'/>")
+        .append("<img src='../resources/image/img_plus.png' class='add-question'/>")
+        .append("<img src='../resources/image/img_remove.png' class='remove-question'/>")
+        .append("<ol class='question-choice'>");
 
     createCtxtbox($('#question .question-area').children().last());
 }
 
 function createCtxtbox(that) {
 
-    $(that).append("<li class='choice-area'> ");
+    $(that).append("<li class='choice-area'>");
     $(that).children().last()
-        .append("<input type='text' class='choice-text' placeholder='선택지를 입력하세요.'/> ")
-        .append("<img src='../resources/image/img_upload_photo.png' class='img-file-upload'/> ")
-        .append("<input type='file' class='choice-file'/> ")
-        .append("<img src='../resources/image/img_plus.png' class='add-choice'/> ")
-        .append("<img src='../resources/image/img_remove.png' class='remove-choice'/> ");
+        .append("<input type='text' class='choice-text' placeholder='선택지를 입력하세요.'/>")
+        .append("<img src='../resources/image/img_upload_photo.png' class='img-file-upload'/>")
+        .append("<input type='file' class='choice-file'/>")
+        .append("<img src='../resources/image/img_plus.png' class='add-choice'/>")
+        .append("<img src='../resources/image/img_remove.png' class='remove-choice'/>");
 
 }
 
 function removeTxtbox(that) {
 
-
 	that.parentNode.remove();
-
 }
 
 function hideRemovebtn(that) {
@@ -90,7 +87,6 @@ function hideRemovebtn(that) {
 	}
 
 }
-
 
 $(document).ready(function(){
 
@@ -148,15 +144,13 @@ $(document).ready(function(){
 
     });
 
-
     $('#btn_submit').on('click',function(e){
 
     	e.preventDefault();
         var votesLength = $('#question').children().length;
         var votes = $('#question').children();
-        var choiceLength = '';
-        
-        
+        var choiceLength = ''; 
+
         for(var i = 0; i < votesLength; i++) {
         	
         	var questionText = votes.find('.question-text');
@@ -191,6 +185,6 @@ $(document).ready(function(){
         form.choice_length.value = choiceLength;
         
         form.submit();
-   
+
     });
 });
