@@ -12,7 +12,7 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script type="text/javascript" src="../resources/js/vote.js"
    charset='utf-8'></script>
-<title>투표 등록</title>
+<title>설문 수정</title>
 </head>
 <body>
    <div id='container'>

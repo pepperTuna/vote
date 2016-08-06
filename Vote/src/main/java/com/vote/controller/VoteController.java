@@ -65,6 +65,11 @@ public class VoteController {
 	   model.addAttribute("list", voteService.listVote());
    }
    
+   @RequestMapping(value = "/createVote", method = RequestMethod.GET)
+   public void createVote() {
+	   
+   }
+   
    @RequestMapping(value = "/createVote", method = RequestMethod.POST)
    public String createVote(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	   voteService.createVote(request);
