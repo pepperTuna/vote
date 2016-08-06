@@ -72,7 +72,7 @@ public class VoteController {
 
 	   return "listVote";
    }
-   /*
+
    @RequestMapping(value = "/updateVote", method = RequestMethod.GET)
    public void updateVote(@RequestParam("vIdx") int vIdx, Model model) throws Exception {
 	   
@@ -80,6 +80,7 @@ public class VoteController {
 	   model.addAttribute("list", voteQuestionService.readQuestion(vIdx));
    }
 
+   /*
    @RequestMapping(value = "/updateVote", method = RequestMethod.POST)
    
    public String updateVote(VoteVO vo, RedirectAttributes rttr) throws Exception {
