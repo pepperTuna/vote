@@ -14,9 +14,6 @@
 	<body>
 		<div class='container'>
 			<div class="row h5">
-				<br><br><br><br>
-			</div>
-			<div class="row h5">
 				<div class="col-xs-3"><strong>설문번호</strong></div>
 				<div class="col-xs-9">${voteVO.vIdx}</div><br><br>
 				<div class="col-xs-3"><strong>작성자</strong></div>
