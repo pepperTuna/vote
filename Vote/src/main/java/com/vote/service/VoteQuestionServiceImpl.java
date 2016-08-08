@@ -27,7 +27,29 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 
 	@Override
 	public void createQuestion(HttpServletRequest request, String uploadPath) throws Exception {
-		
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+
+		int questionLen = multipartRequest.getParameter("vote_length")!=null ? Integer.parseInt(multipartRequest.getParameter("vote_length")) : 0;
+		String choiceLen = multipartRequest.getParameter("choice_length").toString();
+		String[] choice = choiceLen.split("\\|");
+
+		for (int i = 0; i < questionLen; i++) {
+
+			for (int j = 0; j < Integer.parseInt(choice[i]); j++) {
+				
+				String choiceText = "choice-text-" + (i+1) + "-" + (j+1);
+				String choiceFile = "choice-file-" + (i+1) + "-" + (j+1);
+				String uploadedFilePath = null;
+				MultipartFile file = multipartRequest.getFile(choiceFile);
+
+				if (file != null) {
+					
+					if (!file.isEmpty()) {
+						
+					}
+				}
+			}
+		}
 	}
 	
 	@Override
