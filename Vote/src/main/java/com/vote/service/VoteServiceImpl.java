@@ -40,9 +40,10 @@ public class VoteServiceImpl implements VoteService {
 
 	@Override
 	public void createVote(HttpServletRequest request) throws Exception {
-		
-		
-		
+		VoteVO voteVo = new VoteVO();
+		voteVo.setvTitle(request.getParameter("vote_text"));
+		voteVo.setvWriter("noname");
+		dao.createVote(voteVo);
 	}
 
 }

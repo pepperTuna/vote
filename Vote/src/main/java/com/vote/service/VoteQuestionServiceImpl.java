@@ -34,20 +34,34 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 		String[] choice = choiceLen.split("\\|");
 
 		for (int i = 0; i < questionLen; i++) {
-
-			for (int j = 0; j < Integer.parseInt(choice[i]); j++) {
+			
+			String questionText = "question-"+(i+1);
+			questionText = multipartRequest.getParameter("question_text");
+			
+			for (int j = 0; j <= Integer.parseInt(choice[i]); j++) {				
+				VoteQuestionVO vo = new VoteQuestionVO();
+				String contentText = "";
 				
-				String choiceText = "choice-text-" + (i+1) + "-" + (j+1);
-				String choiceFile = "choice-file-" + (i+1) + "-" + (j+1);
-				String uploadedFilePath = null;
-				MultipartFile file = multipartRequest.getFile(choiceFile);
-
-				if (file != null) {
-					
-					if (!file.isEmpty()) {
+				if(j==0){		
+					contentText = questionText;
+				}else{
+					String choiceText = "choice-text-" + (i+1) + "-" + (j);
+					String choiceFile = "choice-file-" + (i+1) + "-" + (j);
+					String uploadedFilePath = null;
+					MultipartFile file = multipartRequest.getFile(choiceFile);
+	
+					if (file != null) {
 						
+						if (!file.isEmpty()) {
+							
+						}
 					}
+					contentText = choiceText;
 				}
+				
+				vo.setqNo(i+1);
+				vo.setcNo(j);
+				vo.setContent(contentText);				
 			}
 		}
 	}
