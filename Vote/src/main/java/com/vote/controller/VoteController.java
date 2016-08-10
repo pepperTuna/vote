@@ -24,7 +24,7 @@ import com.vote.service.VoteQuestionService;
 import com.vote.service.VoteService;
 
 @Controller
-@RequestMapping("/*")
+@RequestMapping("/vote")
 public class VoteController {
    
    private static final Logger logger = LoggerFactory.getLogger(VoteController.class);
@@ -67,14 +67,14 @@ public class VoteController {
    }
    
    @RequestMapping(value = "/createVote", method = RequestMethod.GET)
-   public void createVote() {
-	   
+   public String createVote() {
+	   return "createVote";
    }
    
    @RequestMapping(value = "/createVote", method = RequestMethod.POST)
    public String createVote(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	   voteService.createVote(request);
-	   voteQuestionService.createQuestion(request, uploadPath);
+	   int idx = voteService.createVote(request);
+	   voteQuestionService.createQuestion(request, uploadPath, idx);
 
 	   return "listVote";
    }

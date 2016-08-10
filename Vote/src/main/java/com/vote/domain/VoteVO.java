@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class VoteVO {
 
-	private Integer vIdx;
+	private Integer vidx;
 	private String vWriter;
 	private String vTitle;
 	private String vActive;
 	private String vStatus;
 	private Date vUpdateDate;
 	
-	public Integer getvIdx() {
-		return vIdx;
+	public Integer getvidx() {
+		return vidx;
 	}
 	
-	public void setvIdx(Integer vIdx) {
-		this.vIdx = vIdx;
+	public void setvidx(Integer vIdx) {
+		this.vidx = vIdx;
 	}
 	
 	public String getvWriter() {
@@ -61,7 +61,7 @@ public class VoteVO {
 
 	@Override
 	public String toString() {
-		return "VoteVO [V_IDX=" + vIdx + ", V_WRITER=" + vWriter + ", V_TITLE="
+		return "VoteVO [V_IDX=" + vidx + ", V_WRITER=" + vWriter + ", V_TITLE="
 				+ vTitle + ", V_ACTIVE=" + vActive + ", V_STATUS=" + vStatus
 				+ ", V_UPDATE_DATE=" + vUpdateDate + "]";
 	}

@@ -13,7 +13,7 @@
 <body>
 <div id='container'>
     <div id='content'>
-	<form name='vote' action='/uploadForm' method='POST' enctype='multipart/form-data'>
+	<form name='vote' action='/vote/vote/createVote' method='POST' enctype='multipart/form-data'>
 			<input type='text' name='vote_text' placeholder='설문 제목을 입력하세요.'/>
             <ol id='question'>
                 <li class='question-area'>

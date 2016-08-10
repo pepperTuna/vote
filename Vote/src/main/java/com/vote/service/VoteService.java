@@ -16,6 +16,6 @@ public interface VoteService {
 
 	public void deleteVote(Integer v_idx) throws Exception;
 
-	public void createVote(HttpServletRequest request) throws Exception;
+	public int createVote(HttpServletRequest request) throws Exception;
 	
 }

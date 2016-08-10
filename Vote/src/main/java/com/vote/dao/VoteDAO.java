@@ -5,7 +5,7 @@ import com.vote.domain.VoteVO;
 
 public interface VoteDAO {
 
-	  public void createVote(VoteVO vo) throws Exception;
+	  public int createVote(VoteVO vo) throws Exception;
 	  
 	  public VoteVO readVote(Integer v_idx) throws Exception;
 	  

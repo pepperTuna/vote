@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.vote.mapper.VoteMapper">
 
 	<!-- 설문 생성 -->
-	<insert id="createVote">
+	<insert id="createVote" parameterType="com.vote.domain.VoteVO" useGeneratedKeys="true" keyProperty="vidx" keyColumn="vidx" >
 		insert into VOTE (vWriter, vTitle)
 		values (#{vWriter}, #{vTitle})
 	</insert>

@@ -8,7 +8,7 @@ import com.vote.domain.VoteQuestionVO;
 
 public interface VoteQuestionService {
 	
-	public void createQuestion(HttpServletRequest request, String uploadPath) throws Exception;
+	public void createQuestion(HttpServletRequest request, String uploadPath, int idx) throws Exception;
 	  
 	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception;
 	  

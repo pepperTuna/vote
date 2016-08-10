@@ -3,11 +3,17 @@ package com.vote.dao;
 import java.util.List;
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+
+import com.vote.controller.VoteController;
 import com.vote.domain.VoteVO;
 
 @Repository
 public class VoteDAOImpl implements VoteDAO {
+	
+	private static final Logger logger = LoggerFactory.getLogger(VoteDAOImpl.class);
 
 	@Inject
 	private SqlSession session;
@@ -15,8 +21,9 @@ public class VoteDAOImpl implements VoteDAO {
 	private static String namespace = "com.vote.mapper.VoteMapper";
 	
 	@Override
-	public void createVote(VoteVO vo) throws Exception {
+	public int createVote(VoteVO vo) throws Exception {
 		session.insert(namespace + ".createVote", vo);
+		return vo.getvidx();
 	}
 
 

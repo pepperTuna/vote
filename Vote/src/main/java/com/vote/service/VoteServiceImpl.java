@@ -39,11 +39,18 @@ public class VoteServiceImpl implements VoteService {
 	}
 
 	@Override
-	public void createVote(HttpServletRequest request) throws Exception {
+	public int createVote(HttpServletRequest request) throws Exception {
+		System.out.println("==========================");
+		System.out.println(request.toString());
+		System.out.println("==========================");
 		VoteVO voteVo = new VoteVO();
 		voteVo.setvTitle(request.getParameter("vote_text"));
 		voteVo.setvWriter("noname");
-		dao.createVote(voteVo);
+		System.out.println("==========================");
+		System.out.println(voteVo);
+		System.out.println("==========================");
+		int idx = dao.createVote(voteVo);
+		return idx;
 	}
 
 }
