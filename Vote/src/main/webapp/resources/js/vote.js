@@ -156,8 +156,7 @@ $(document).ready(function(){
         	var questionText = votes.find('.question-text');
             questionText.eq(0).attr('name', 'question-' + (i + 1));
 
-
-            var choiceText = votes.find('.choice-text');
+            var choiceText = votes.eq(0).find('.choice-text');
             
             for(var j = 0; j < choiceText.length; j++) {
             	
@@ -179,6 +178,7 @@ $(document).ready(function(){
 
             votes = votes.next();
         }
+        alert(votesLength + " /// "+choiceLength);
    
         var form = document.vote;
         form.vote_length.value = votesLength;
