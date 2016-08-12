@@ -73,6 +73,8 @@ public class VoteController {
    
    @RequestMapping(value = "/createVote", method = RequestMethod.POST)
    public String createVote(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	   request.setCharacterEncoding("UTF-8");
+	   
 	   int idx = voteService.createVote(request);
 	   voteQuestionService.createQuestion(request, uploadPath, idx);
 
@@ -102,5 +104,19 @@ public class VoteController {
 	   rttr.addFlashAttribute("msg", "SUCCESS");
 
 	   return "redirect:/listVote";
+   }
+   
+   @RequestMapping(value = "/snsLogin", method = RequestMethod.GET)
+   public String snsLogin() {   
+      return "snsLogin";
+   }
+   
+   @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+   public void userLogin(HttpServletRequest request, Model model) throws Exception {
+      
+      String id = request.getParameter("sns_id");
+      String type = request.getParameter("sns_type");
+      
+      System.out.println(id + " : " + type);
    }
 }
