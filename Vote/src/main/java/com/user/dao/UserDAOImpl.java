@@ -16,7 +16,7 @@ public class UserDAOImpl implements UserDAO{
 	private static String namespace = "com.vote.mapper.UserMapper";
 	
 	@Override
-	public int createUser(UserVO uservo) {
+	public int joinSnsUser(UserVO uservo) {
 		return session.insert(namespace+".createUser",uservo);
 	}
 

@@ -6,8 +6,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.vote.mapper.userMapper">
 
 	<!-- 회원 가입 -->
-	<insert id="createVote">
-		insert into VOTE (userid, userpw,username,snsid,snstype)
-		values (#{userid}, #{userpw},#{username}, #{snsid}, #{snstype})
+	<insert id="joinSnsUser">
+		insert into user (userid, userpw,username,snsid,snstype)
+		values (#{userid}, #{username}, #{snsid}, #{snstype})
 	</insert>
+	
+	<select id="checkRegisteredUser" resultType="int">
+		SELECT count(*)
+		FROM user
+		WHERE snsid=#{snsid} and snstype=#{snstype}		
+	</select>
 </mapper>

@@ -14,8 +14,8 @@ public class UserServiceImpl implements UserService{
 	private UserDAO dao;
 
 	@Override
-	public int userJoin(UserVO uservo) {
-		return dao.createUser(uservo);
+	public int joinSnsUser(UserVO uservo) {
+		return dao.joinSnsUser(uservo);
 	}
 
 	@Override

@@ -30,7 +30,7 @@ public class UserContoller {
 	public void userLogin(UserVO uservo, Model model) throws Exception {
 //		System.out.println(userService.checkRegisterdUser(uservo));
 		if(userService.checkRegisteredUser(uservo)==0){
-//			userService.userJoin(uservo);
+			userService.joinSnsUser(uservo);
 		}
 	}
 }
