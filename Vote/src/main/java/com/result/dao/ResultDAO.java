@@ -1,5 +1,5 @@
 package com.result.dao;
 
-public class ResultDAO {
+public interface ResultDAO {
 
 }
