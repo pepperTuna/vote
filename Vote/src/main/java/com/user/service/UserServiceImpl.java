@@ -17,5 +17,9 @@ public class UserServiceImpl implements UserService{
 	public int userJoin(UserVO uservo) {
 		return dao.createUser(uservo);
 	}
-	
+
+	@Override
+	public int checkRegisteredUser(UserVO uservo) {
+		return dao.checkRegisteredUser(uservo);
+	}
 }

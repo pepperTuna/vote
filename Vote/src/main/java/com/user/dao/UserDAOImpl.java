@@ -19,5 +19,10 @@ public class UserDAOImpl implements UserDAO{
 	public int createUser(UserVO uservo) {
 		return session.insert(namespace+".createUser",uservo);
 	}
+
+	@Override
+	public int checkRegisteredUser(UserVO uservo) {
+		return session.selectOne(namespace+".checkRegisteredUser",uservo);
+	}
 	
 }

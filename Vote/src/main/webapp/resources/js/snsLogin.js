@@ -18,8 +18,8 @@ Kakao.Auth.createLoginButton({
 			url: '/v1/user/me',
 			success: function(res) {
 				var snsform = document.snsform;
-				snsform.sns_id.value = res.id;
-				snsform.sns_type.value = 1;
+				snsform.snsid.value = res.id;
+				snsform.snstype.value = 1;
 				snsform.submit();
 			},
 			fail: function(error) {
@@ -38,8 +38,8 @@ Kakao.Auth.createLoginButton({
 function naverSignInCallback() {
 	// naver_id_login.getProfileData('프로필항목명');
 	var snsform = document.snsform;
-	snsform.sns_id.value = naver_id_login.getProfileData('email');
-	snsform.sns_type.value = 2;
+	snsform.snsid.value = naver_id_login.getProfileData('email');
+	snsform.snstype.value = 2;
 	snsform.submit();
 }
 
@@ -108,8 +108,8 @@ function testAPI() {
 	console.log('Welcome!  Fetching your information.... ');
 	FB.api('/me', function(response) {
 		var snsform = document.snsform;
-		snsform.sns_id.value = response.id;
-		snsform.sns_type.value = 3;
+		snsform.snsid.value = response.id;
+		snsform.snstype.value = 3;
 		snsform.submit();
 	});
 }
