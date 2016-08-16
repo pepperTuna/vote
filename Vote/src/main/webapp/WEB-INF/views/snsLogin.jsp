@@ -20,6 +20,7 @@
 	<form name="snsform" method="post" action="/user/login">
 		<input type="hidden" name="snsid"/>
 		<input type="hidden" name="snstype"/>
+		<input type="hidden" name="username"/>
 	</form>
 	<script>
 		// Only works after `FB.init` is called

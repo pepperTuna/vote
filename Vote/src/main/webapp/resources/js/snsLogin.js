@@ -110,6 +110,7 @@ function testAPI() {
 		var snsform = document.snsform;
 		snsform.snsid.value = response.id;
 		snsform.snstype.value = 3;
+		snsform.username.value = response.name;
 		snsform.submit();
 	});
 }
