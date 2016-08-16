@@ -17,14 +17,14 @@
 			<h2>진행중 설문</h2>
 			<table class="table table-hover">
 			<c:forEach items="${list}" var="voteVO">
-				<c:if test="${voteVO.vStatus == '1'}">
+				<c:if test="${voteVO.vstatus == '1'}">
 				<tr>
-					<td>번호 : ${voteVO.vIdx}</td>
-					<td>${voteVO.vWriter}</td>
-					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vUpdateDate}" /></td>
+					<td>번호 : ${voteVO.vidx}</td>
+					<td>${voteVO.vwriter}</td>
+					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vupdatedate}" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vIdx}">${voteVO.vTitle}</a></td>
+					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vidx}">${voteVO.vtitle}</a></td>
 				</tr>
 				</c:if>
 			</c:forEach>
@@ -33,14 +33,14 @@
 			<h2>완료된 설문</h2>
 			<table class="table table-hover">
 			<c:forEach items="${list}" var="voteVO">
-				<c:if test="${voteVO.vStatus == '2'}">
+				<c:if test="${voteVO.vstatus == '2'}">
 				<tr>
-					<td>번호 : ${voteVO.vIdx}</td>
-					<td>${voteVO.vWriter}</td>
-					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vUpdateDate}" /></td>
+					<td>번호 : ${voteVO.vidx}</td>
+					<td>${voteVO.vwriter}</td>
+					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vupdatedate}" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vIdx}">${voteVO.vTitle}</a></td>
+					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vidx}">${voteVO.vtitle}</a></td>
 				</tr>
 				</c:if>
 			</c:forEach>

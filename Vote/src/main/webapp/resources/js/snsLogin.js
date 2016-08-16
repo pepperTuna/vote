@@ -1,7 +1,7 @@
 //네이버아디디로로그인 초기화 start
 var naver_id_login = new naver_id_login("3yr90lvUPRm9hvhpImQP", "http://127.0.0.1:8080/snsLogin");
 var state = naver_id_login.getUniqState();
-naver_id_login.setButton("white", 2,40);
+naver_id_login.setButton("green", 3, 48);
 naver_id_login.setDomain(".service.com");
 naver_id_login.setState(state);
 naver_id_login.init_naver_id_login();
@@ -74,7 +74,7 @@ window.fbAsyncInit = function() {
 		appId : '182856515465043',
 		cookie : true, // 쿠키가 세션을 참조할 수 있도록 허용
 		xfbml : true, // 소셜 플러그인이 있으면 처리
-		version : 'v2.1' // 버전 2.1 사용
+		version : 'v2.7' // 버전 2.7 사용
 	});
 
 	// 자바스크립트 SDK를 초기화 했으니, FB.getLoginStatus()를 호출한다.

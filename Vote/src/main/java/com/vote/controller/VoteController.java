@@ -24,7 +24,7 @@ import com.vote.service.VoteQuestionService;
 import com.vote.service.VoteService;
 
 @Controller
-@RequestMapping("/vote")
+@RequestMapping("/")
 public class VoteController {
    
    private static final Logger logger = LoggerFactory.getLogger(VoteController.class);

@@ -9,27 +9,27 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	    <script type="text/javascript" src="../resources/js/readVote.js" charset='utf-8'></script>
-		<title>${voteVO.vTitle}</title>
+		<title>${voteVO.vtitle}</title>
 	</head>
 	<body>
 		<div class='container'>
 			<div class="row h5">
 				<div class="col-xs-3"><strong>설문번호</strong></div>
-				<div class="col-xs-9">${voteVO.vIdx}</div><br><br>
+				<div class="col-xs-9">${voteVO.vidx}</div><br><br>
 				<div class="col-xs-3"><strong>작성자</strong></div>
-				<div class="col-xs-9">${voteVO.vWriter}</div><br><br>
+				<div class="col-xs-9">${voteVO.vwriter}</div><br><br>
 				<div class="col-xs-3"><strong>등록 날짜</strong></div>
-				<div class="col-xs-9"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${voteVO.vUpdateDate}"></fmt:formatDate></div><br><br>
+				<div class="col-xs-9"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${voteVO.vupdatedate}"></fmt:formatDate></div><br><br>
 			</div>
 			<a href="/listVote"><button type="button" class="btn btn-primary">설문 목록으로</button></a>
 			<hr>
-			<h3>${voteVO.vTitle}</h3><br>
+			<h3>${voteVO.vtitle}</h3><br>
 			<div class="alert alert-info" role="alert">
 				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 				 썸네일을 누르고 있으면 <strong>미리보기가 활성화</strong>됩니다.
 			</div>
 
-			<c:if test="${voteVO.vStatus eq '2'}">
+			<c:if test="${voteVO.vstatus eq '2'}">
 			<div class="alert alert-danger" role="alert">
 				<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
 				 이 설문은 이미 <strong>조사기간이 만료</strong>된 설문입니다.				
@@ -40,11 +40,11 @@
 					<dl>
 						<!-- vIdx = ${voteQuestionVO.vIdx} -->
 					<c:choose>
-						<c:when test="${voteQuestionVO.cNo eq '0'}">
-							<dt>${voteQuestionVO.qNo}. ${voteQuestionVO.content}</dt>
+						<c:when test="${voteQuestionVO.cno eq '0'}">
+							<dt>${voteQuestionVO.qno}. ${voteQuestionVO.content}</dt>
 						</c:when>
 						<c:otherwise>
-							<dd><input type='radio' name='choice-${voteQuestionVO.vIdx}-${voteQuestionVO.qNo}-${voteQuestionVO.cNo}'>${voteQuestionVO.content}
+							<dd><input type='radio' name='choice-${voteQuestionVO.vidx}-${voteQuestionVO.qno}-${voteQuestionVO.cno}'>${voteQuestionVO.content}
 							<c:if test="${voteQuestionVO.attach ne null }">
 								<a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="auto top" data-content=""><img src='${voteQuestionVO.attach}' class="img-thumbnail" width="50"></a>
 							</c:if>
