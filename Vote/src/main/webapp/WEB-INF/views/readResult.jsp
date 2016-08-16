@@ -14,6 +14,14 @@
 </head>
 <body>
 	<div class="container">
-
+		<c:forEach items="${resultList}" var="ResultVO">
+			${ResultVO.ridx}	<br/>
+			${ResultVO.vno }	<br/>
+			${ResultVO.qno }	<br/>
+			${ResultVO.cno }	<br/>
+			${ResultVO.ruser }	<br/>
+			${ResultVO.vupdatedate }	<br/>
+		</c:forEach>
+	</div>
 </body>
 </html>

@@ -8,5 +8,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from VOTE_RESULT 
 		where vIdx=#{vidx}
 	</select>
-
 </mapper>
