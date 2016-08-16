@@ -13,6 +13,7 @@
 	<title>설문조사 결과</title>
 </head>
 <body>
+	<div class="container">
 
 </body>
 </html>
