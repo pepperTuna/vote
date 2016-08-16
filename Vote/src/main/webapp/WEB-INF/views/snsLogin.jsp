@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html lang="ko">
@@ -8,15 +8,15 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<!-- ·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+	<!-- ë¡œê·¸ì¸ ë²„íŠ¼ ë…¸ì¶œ ì˜ì—­ -->
 	<div id="naver_id_login"></div>
-	<div id="ssibal" class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">ÆäÀÌ½ººÏÀ¸·Î ·Î±×ÀÎ</div>
+	<div id="ssibal" class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">íŽ˜ì´ìŠ¤ë¶ìœ¼ë¡œ ë¡œê·¸ì¸</div>
 	<br>
 	<a id="kakao-login-btn"></a>
 	<br><br>
 	<img src="../resources/image/fb.png" />
 	
-	<!-- ·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+	<!-- ë¡œê·¸ì¸ ë²„íŠ¼ ë…¸ì¶œ ì˜ì—­ -->
 	<form name="snsform" method="post" action="/user/login">
 		<input type="hidden" name="snsid"/>
 		<input type="hidden" name="snstype"/>
