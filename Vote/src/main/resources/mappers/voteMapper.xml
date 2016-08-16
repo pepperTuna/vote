@@ -58,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 설문 결과 출력 -->
-	<select id="readResult" resultType="com.vote.domain.VoteResultVO">
+	<select id="readResult" resultType="com.result.domain.ResultVO">
 		select rUser, vNo, qNo, cNo, vUpdateDate
 		from VOTE_RESULT
 		where rUser=#{rUser}
