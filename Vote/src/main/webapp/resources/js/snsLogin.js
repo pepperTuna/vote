@@ -110,7 +110,6 @@ function testAPI() {
 		var snsform = document.snsform;
 		snsform.sns_id.value = response.id;
 		snsform.sns_type.value = 3;
-		alert(snsform.sns_id.value);
 		snsform.submit();
 	});
 }
