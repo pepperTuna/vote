@@ -21,16 +21,6 @@
 		<input type="hidden" name="sns_id"/>
 		<input type="hidden" name="sns_type"/>
 	</form>
-	<script>
-		// Only works after `FB.init` is called
-		function myFacebookLogin() {
-			FB.login(function() {
-			}, {
-				scope : 'publish_actions'
-			});
-		}
-	</script>
-	<button onclick="myFacebookLogin()">Login with Facebook</button>
 	<script type="text/javascript" src="../resources/js/snsLogin.js"></script>
 </body>
 </html>

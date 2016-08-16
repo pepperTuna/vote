@@ -65,9 +65,9 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 					contentText = choiceText;					
 				}
 				
-				vo.setvIdx(idx);
-				vo.setqNo(i+1);
-				vo.setcNo(j);
+				vo.setVidx(idx);
+				vo.setQno(i+1);
+				vo.setCno(j);
 				vo.setContent(contentText != null ? contentText : "");
 				dao.createQuestion(vo);
 			}

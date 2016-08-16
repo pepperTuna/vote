@@ -40,7 +40,7 @@
 					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vupdatedate}" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vidx}">${voteVO.vtitle}</a></td>
+					<td colspan="3"><a href="/readVote?vidx=${voteVO.vidx}">${voteVO.vtitle}</a></td>
 				</tr>
 				</c:if>
 			</c:forEach>

@@ -5,64 +5,77 @@ import java.util.Date;
 public class VoteVO {
 
 	private Integer vidx;
-	private String vWriter;
-	private String vTitle;
-	private String vActive;
-	private String vStatus;
-	private Date vUpdateDate;
-	
-	public Integer getvidx() {
+	private String vwriter;
+	private String vtitle;
+	private String vactive;
+	private String vstatus;
+	private Date vupdatedate;
+
+
+	public Integer getVidx() {
 		return vidx;
 	}
-	
-	public void setvidx(Integer vIdx) {
-		this.vidx = vIdx;
+
+
+	public void setVidx(Integer vidx) {
+		this.vidx = vidx;
 	}
-	
-	public String getvWriter() {
-		return vWriter;
+
+
+	public String getVwriter() {
+		return vwriter;
 	}
-	
-	public void setvWriter(String vWriter) {
-		this.vWriter = vWriter;
+
+
+	public void setVwriter(String vwriter) {
+		this.vwriter = vwriter;
 	}
-	
-	public String getvTitle() {
-		return vTitle;
+
+
+	public String getVtitle() {
+		return vtitle;
 	}
-	
-	public void setvTitle(String vTitle) {
-		this.vTitle = vTitle;
+
+
+	public void setVtitle(String vtitle) {
+		this.vtitle = vtitle;
 	}
-	
-	public String getvActive() {
-		return vActive;
+
+
+	public String getVactive() {
+		return vactive;
 	}
-	
-	public void setvActive(String vActive) {
-		this.vActive = vActive;
+
+
+	public void setVactive(String vactive) {
+		this.vactive = vactive;
 	}
-	
-	public String getvStatus() {
-		return vStatus;
+
+
+	public String getVstatus() {
+		return vstatus;
 	}
-	
-	public void setvStatus(String vStatus) {
-		this.vStatus = vStatus;
+
+
+	public void setVstatus(String vstatus) {
+		this.vstatus = vstatus;
 	}
-	
-	public Date getvUpdateDate() {
-		return vUpdateDate;
+
+
+	public Date getVupdatedate() {
+		return vupdatedate;
 	}
-	
-	public void setvUpdateDate(Date vUpdateDate) {
-		this.vUpdateDate = vUpdateDate;
+
+
+	public void setVupdatedate(Date vupdatedate) {
+		this.vupdatedate = vupdatedate;
 	}
+
 
 	@Override
 	public String toString() {
-		return "VoteVO [V_IDX=" + vidx + ", V_WRITER=" + vWriter + ", V_TITLE="
-				+ vTitle + ", V_ACTIVE=" + vActive + ", V_STATUS=" + vStatus
-				+ ", V_UPDATE_DATE=" + vUpdateDate + "]";
+		return "VoteVO [V_IDX=" + vidx + ", V_WRITER=" + vwriter + ", V_TITLE="
+				+ vtitle + ", V_ACTIVE=" + vactive + ", V_STATUS=" + vstatus
+				+ ", V_UPDATE_DATE=" + vupdatedate + "]";
 	}
 }

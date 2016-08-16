@@ -38,7 +38,7 @@
 			<div class='col-md-12'>
 				<c:forEach items ="${list}" var="voteQuestionVO">
 					<dl>
-						<!-- vIdx = ${voteQuestionVO.vIdx} -->
+						<!-- vidx = ${voteQuestionVO.vidx} -->
 					<c:choose>
 						<c:when test="${voteQuestionVO.cno eq '0'}">
 							<dt>${voteQuestionVO.qno}. ${voteQuestionVO.content}</dt>

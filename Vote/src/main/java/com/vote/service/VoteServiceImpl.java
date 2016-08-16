@@ -44,8 +44,8 @@ public class VoteServiceImpl implements VoteService {
 		System.out.println(request.toString());
 		System.out.println("==========================");
 		VoteVO voteVo = new VoteVO();
-		voteVo.setvTitle(request.getParameter("vote_text"));
-		voteVo.setvWriter("noname");
+		voteVo.setVtitle(request.getParameter("vote_text"));
+		voteVo.setVwriter("noname");
 		System.out.println("==========================");
 		System.out.println(voteVo);
 		System.out.println("==========================");

@@ -24,7 +24,6 @@ import com.vote.service.VoteQuestionService;
 import com.vote.service.VoteService;
 
 @Controller
-@RequestMapping("/")
 public class VoteController {
    
    private static final Logger logger = LoggerFactory.getLogger(VoteController.class);
@@ -38,7 +37,7 @@ public class VoteController {
    @Inject
    private VoteQuestionService voteQuestionService;
 
-   @RequestMapping(method = RequestMethod.GET)
+   @RequestMapping(value = "/", method = RequestMethod.GET)
    public String home(Locale locale, Model model) {
 	   
      logger.info("Welcome home! The client locale is {}.", locale);
@@ -55,7 +54,7 @@ public class VoteController {
    
    
    @RequestMapping(value = "/readVote", method = RequestMethod.GET)
-   public void readVote(@RequestParam("vIdx") int vIdx, Model model) throws Exception {
+   public void readVote(@RequestParam("vidx") int vIdx, Model model) throws Exception {
 	   
 	   model.addAttribute(voteService.readVote(vIdx));
 	   model.addAttribute("list", voteQuestionService.readQuestion(vIdx));
@@ -82,7 +81,7 @@ public class VoteController {
    }
 
    @RequestMapping(value = "/updateVote", method = RequestMethod.GET)
-   public void updateVote(@RequestParam("vIdx") int vIdx, Model model) throws Exception {
+   public void updateVote(@RequestParam("vidx") int vIdx, Model model) throws Exception {
 	   
 	   model.addAttribute(voteService.readVote(vIdx));
 	   model.addAttribute("list", voteQuestionService.readQuestion(vIdx));
@@ -99,7 +98,7 @@ public class VoteController {
    }
    */
    @RequestMapping(value = "/deleteVote", method = RequestMethod.POST)
-   public String deleteVote(@RequestParam("vIdx") int vIdx, RedirectAttributes rttr) throws Exception {
+   public String deleteVote(@RequestParam("vidx") int vIdx, RedirectAttributes rttr) throws Exception {
 	   voteService.deleteVote(vIdx);
 	   rttr.addFlashAttribute("msg", "SUCCESS");
 

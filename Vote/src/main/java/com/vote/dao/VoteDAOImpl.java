@@ -23,7 +23,7 @@ public class VoteDAOImpl implements VoteDAO {
 	@Override
 	public int createVote(VoteVO vo) throws Exception {
 		session.insert(namespace + ".createVote", vo);
-		return vo.getvidx();
+		return vo.getVidx();
 	}
 
 

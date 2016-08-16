@@ -13,12 +13,6 @@ public class UserContoller {
 	@Inject
 	UserService userService;
 
-//	@RequestMapping("/login")
-//	public int joinUser(UserVO uservo) {
-//
-//		return userService.userJoin(uservo);
-//	}
-
 	@RequestMapping(value = "/snsLogin", method = RequestMethod.GET)
 	public String snsLogin() {
 		return "snsLogin";

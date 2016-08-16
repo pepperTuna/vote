@@ -2,65 +2,78 @@ package com.vote.domain;
 
 public class VoteQuestionVO {
 
-	private Integer vIdx;
-	private Integer qNo;
-	private Integer cNo;
+	private Integer vidx;
+	private Integer qno;
+	private Integer cno;
 	private String content;
 	private String attach;
-	private String attachType;
+	private String attachtype;
 	
-	public Integer getvIdx() {
-		return vIdx;
+
+	public Integer getVidx() {
+		return vidx;
 	}
 
-	public void setvIdx(Integer vIdx) {
-		this.vIdx = vIdx;
+
+	public void setVidx(Integer vidx) {
+		this.vidx = vidx;
 	}
 
-	public Integer getqNo() {
-		return qNo;
+
+	public Integer getQno() {
+		return qno;
 	}
 
-	public void setqNo(Integer qNo) {
-		this.qNo = qNo;
+
+	public void setQno(Integer qno) {
+		this.qno = qno;
 	}
 
-	public Integer getcNo() {
-		return cNo;
+
+	public Integer getCno() {
+		return cno;
 	}
 
-	public void setcNo(Integer cNo) {
-		this.cNo = cNo;
+
+	public void setCno(Integer cno) {
+		this.cno = cno;
 	}
+
 
 	public String getContent() {
 		return content;
 	}
 
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 
 	public String getAttach() {
 		return attach;
 	}
 
+
 	public void setAttach(String attach) {
 		this.attach = attach;
 	}
 
-	public String getAttachType() {
-		return attachType;
+
+	public String getAttachtype() {
+		return attachtype;
 	}
 
-	public void setAttachType(String attachType) {
-		this.attachType = attachType;
+
+	public void setAttachtype(String attachtype) {
+		this.attachtype = attachtype;
 	}
+
 
 	@Override
 	public String toString() {
-		return "QuestionVO [V_IDX=" + vIdx + ", Q_NO=" + qNo + ", C_NO="
-				+ cNo + ", CONTENT=" + content + ", ATTACH=" + attach
-				+ ", ATTACH_TYPE=" + attachType + "]";
+		return "QuestionVO [V_IDX=" + vidx + ", Q_NO=" + qno + ", C_NO="
+				+ cno + ", CONTENT=" + content + ", ATTACH=" + attach
+				+ ", ATTACH_TYPE=" + attachtype + "]";
 	}
 }
