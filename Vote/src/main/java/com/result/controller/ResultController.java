@@ -19,7 +19,7 @@ public class ResultController {
 	ResultService resultService;
 	
 	@RequestMapping(value="/readResult", method=RequestMethod.GET)
-	public void readResult(@RequestParam("vIdx") int vidx, Model model){
+	public void readResult(@RequestParam("vidx") int vidx, Model model){
 		List<ResultVO> resultList = resultService.readResult(vidx);
 		
 		model.addAttribute("resultList", resultList);

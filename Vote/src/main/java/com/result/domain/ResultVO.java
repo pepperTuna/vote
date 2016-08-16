@@ -1,64 +1,64 @@
 package com.result.domain;
 
 public class ResultVO {
-	private Integer rIdx;
-	private String rUser;
-	private Integer vNo;
-	private Integer qNo;
-	private Integer cNo;
-	private String vUpdateDate;
-	
-	public Integer getrIdx() {
-		return rIdx;
-	}
+	private Integer ridx;
+	private String ruser;
+	private Integer vno;
+	private Integer qno;
+	private Integer cno;
+	private String vupdatedate;
 
-	public void setrIdx(Integer rIdx) {
-		this.rIdx = rIdx;
+	public Integer getRidx() {
+		return ridx;
 	}
 	
-	public String getrUser() {
-		return rUser;
+	public void setRidx(Integer ridx) {
+		this.ridx = ridx;
 	}
 
-	public void setrUser(String rUser) {
-		this.rUser = rUser;
+	public String getRuser() {
+		return ruser;
 	}
 
-	public Integer getvNo() {
-		return vNo;
+	public void setRuser(String ruser) {
+		this.ruser = ruser;
+	}
+	
+	public Integer getVno() {
+		return vno;
+	}
+	
+	public void setVno(Integer vno) {
+		this.vno = vno;
 	}
 
-	public void setvNo(Integer vNo) {
-		this.vNo = vNo;
+	public Integer getQno() {
+		return qno;
 	}
 
-	public Integer getqNo() {
-		return qNo;
+	public void setQno(Integer qno) {
+		this.qno = qno;
 	}
 
-	public void setqNo(Integer qNo) {
-		this.qNo = qNo;
+	public Integer getCno() {
+		return cno;
+	}
+	
+	public void setCno(Integer cno) {
+		this.cno = cno;
 	}
 
-	public Integer getcNo() {
-		return cNo;
+	public String getVupdatedate() {
+		return vupdatedate;
 	}
 
-	public void setcNo(Integer cNo) {
-		this.cNo = cNo;
-	}
-
-	public String getvUpdateDate() {
-		return vUpdateDate;
-	}
-
-	public void setvUpdateDate(String vUpdateDate) {
-		this.vUpdateDate = vUpdateDate;
+	public void setVupdatedate(String vupdatedate) {
+		this.vupdatedate = vupdatedate;
 	}
 
 	@Override
 	public String toString() {
-		return "ResultVO [R_USER=" + rUser + ", V_NO=" + vNo + ", Q_NO="
-				+ qNo + ", C_NO=" + cNo + ", V_UPDATE_DATE=" + vUpdateDate + "]";
+		return "ResultVO [R_USER=" + ruser + ", V_NO=" + vno + ", Q_NO="
+				+ qno + ", C_NO=" + cno + ", V_UPDATE_DATE=" + vupdatedate + "]";
 	}
 }

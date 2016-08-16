@@ -14,7 +14,7 @@ public class ResultServiceImpl implements ResultService{
 	@Autowired
 	ResultDAO dao;
 	
-	public List<ResultVO> readResult(int vIdx){
-		return dao.readResult(vIdx);
+	public List<ResultVO> readResult(int vidx){
+		return dao.readResult(vidx);
 	}
 }
