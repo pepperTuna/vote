@@ -105,18 +105,4 @@ public class VoteController {
 
 	   return "redirect:/listVote";
    }
-   
-   @RequestMapping(value = "/snsLogin", method = RequestMethod.GET)
-   public String snsLogin() {   
-      return "snsLogin";
-   }
-   
-   @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-   public void userLogin(HttpServletRequest request, Model model) throws Exception {
-      
-      String id = request.getParameter("sns_id");
-      String type = request.getParameter("sns_type");
-      
-      System.out.println(id + " : " + type);
-   }
 }
