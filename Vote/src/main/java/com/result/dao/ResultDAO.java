@@ -1,5 +1,9 @@
 package com.result.dao;
 
-public interface ResultDAO {
+import java.util.List;
 
+import com.result.domain.ResultVO;
+
+public interface ResultDAO {
+	public List<ResultVO> readResult(int vIdx);
 }
