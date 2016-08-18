@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService{
 	public int checkRegisteredUser(UserVO uservo) {
 		return dao.checkRegisteredUser(uservo);
 	}
+
+	@Override
+	public int duplCheck(UserVO uservo) {
+		return dao.duplCheck(uservo);
+	}
 }

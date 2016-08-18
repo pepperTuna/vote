@@ -24,5 +24,10 @@ public class UserDAOImpl implements UserDAO{
 	public int checkRegisteredUser(UserVO uservo) {
 		return session.selectOne(namespace+".checkRegisteredUser",uservo);
 	}
+
+	@Override
+	public int duplCheck(UserVO uservo) {
+		return session.selectOne(namespace+".duplCheck",uservo);
+	}
 	
 }

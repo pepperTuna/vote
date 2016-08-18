@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.user.domain.UserVO;
 import com.user.service.UserService;
@@ -17,7 +18,6 @@ public class UserContoller {
 	
 	@Inject
 	UserService userService;
-	
 //	@RequestMapping("/login")
 //	public int joinUser(UserVO uservo) {
 //	
@@ -41,5 +41,16 @@ public class UserContoller {
 		System.out.println("ID : "+request.getParameter("snsid")+"\n 이름: "+request.getParameter("username"));
 		System.out.println("ID : "+uservo.getSnsid()+"\n 이름: "+uservo.getUsername());
 		
+	}
+	
+	@RequestMapping("/join")
+	public String userJoin(){
+		return "/userJoin";
+	}
+	
+	@RequestMapping(value="/duplCheck", method= RequestMethod.POST)
+	@ResponseBody
+	public int duplCheck(UserVO uservo){
+		return userService.duplCheck(uservo);
 	}
 }

@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.vote.mapper.userMapper">
+<mapper namespace="com.vote.mapper.UserMapper">
 
 	<!-- 회원 가입 -->
 	<insert id="joinSnsUser">
@@ -15,5 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT count(*)
 		FROM user
 		WHERE snsid=#{snsid} and snstype=#{snstype}		
+	</select>
+	
+	<select id="duplCheck" resultType="int">
+		SELECT count(*)
+		FROM user
+		WHERE userid = #{userid}
 	</select>
 </mapper>
