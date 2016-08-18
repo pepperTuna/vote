@@ -37,7 +37,7 @@ public class UserContoller {
 //      if(userService.checkRegisteredUser(uservo)==0){
 //         userService.joinSnsUser(uservo);
 //      }
-      System.out.println(VoteUtil.encodingToUTF(request.getParameter("username")));
+//      System.out.println(VoteUtil.encodingToUTF(request.getParameter("username")));
       System.out.println("ID : "+request.getParameter("snsid")+"\n 이름: "+request.getParameter("username"));
       System.out.println("ID : "+uservo.getSnsid()+"\n 이름: "+uservo.getUsername());
       
@@ -57,7 +57,7 @@ public class UserContoller {
    @RequestMapping(value="addUser", method = RequestMethod.POST)
    @ResponseBody
    public int userJoin(UserVO uservo) throws Exception{
-      uservo.setUsername(URLDecoder.decode(uservo.getUsername(),"UTF-8"));
+//      uservo.setUsername(URLDecoder.decode(uservo.getUsername(),"UTF-8"));
       System.out.println("이름 : "+uservo.getUsername());
       return userService.joinUser(uservo);
    }

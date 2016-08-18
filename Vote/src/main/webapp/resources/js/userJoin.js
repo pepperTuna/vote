@@ -85,7 +85,8 @@ $(function() {
 											data : {
 												userid : userid.val(),
 												userpw : userpw.val(),
-												username : encodeURIComponent(username.val())
+//												username : encodeURIComponent(username.val())
+												username : username.val()
 											},
 											success : function(result) {
 												if (result == 1) {
