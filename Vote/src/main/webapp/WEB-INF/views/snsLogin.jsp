@@ -11,11 +11,9 @@
 <body>
 	<!-- 로그인 버튼 노출 영역 -->
 	<div id="naver_id_login"></div>
-	<div id="ssibal" class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">페이스북으로 로그인</div>
+	<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">페이스북으로 로그인</div>
 	<br>
 	<a id="kakao-login-btn"></a>
-	<br><br>
-	<img src="../resources/image/fb.png" />
 	
 	<!-- 로그인 버튼 노출 영역 -->
 	<form name="snsform" method="post" action="/user/login">
