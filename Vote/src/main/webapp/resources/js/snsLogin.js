@@ -4,6 +4,7 @@ var state = naver_id_login.getUniqState();
 naver_id_login.setButton("green", 3, 48);
 naver_id_login.setDomain(".service.com");
 naver_id_login.setState(state);
+naver_id_login.setPopup();
 naver_id_login.init_naver_id_login();
 //네이버아디디로로그인 초기화 Script end
 
@@ -20,6 +21,7 @@ Kakao.Auth.createLoginButton({
 				var snsform = document.snsform;
 				snsform.snsid.value = res.id;
 				snsform.snstype.value = 1;
+				snsform.username.value = res.properties.nickname;
 				snsform.submit();
 			},
 			fail: function(error) {
@@ -40,6 +42,7 @@ function naverSignInCallback() {
 	var snsform = document.snsform;
 	snsform.snsid.value = naver_id_login.getProfileData('email');
 	snsform.snstype.value = 2;
+	snsform.username.value = naver_id_login.getProfileData('nickname');
 	snsform.submit();
 }
 
