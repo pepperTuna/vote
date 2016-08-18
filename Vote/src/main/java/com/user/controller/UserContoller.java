@@ -38,7 +38,6 @@ public class UserContoller {
 //         userService.joinSnsUser(uservo);
 //      }
       System.out.println(VoteUtil.encodingToUTF(request.getParameter("username")));
-      
       System.out.println("ID : "+request.getParameter("snsid")+"\n 이름: "+request.getParameter("username"));
       System.out.println("ID : "+uservo.getSnsid()+"\n 이름: "+uservo.getUsername());
       
