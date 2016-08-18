@@ -2,13 +2,28 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="header.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang='ko'>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-	    <script type="text/javascript" src="../resources/js/readVote.js" charset='utf-8'></script>
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		
+		<!-- 합쳐지고 최소화된 최신 CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+		<!-- 부가적인 테마 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		
+		
+		
+	    <script type="text/javascript" src="<c:url value='/resources/js/readVote.js'/>" charset='utf-8'></script>
+		
 		<title>${voteVO.vtitle}</title>
 	</head>
 	<body>
@@ -41,10 +56,10 @@
 						<!-- vidx = ${voteQuestionVO.vidx} -->
 					<c:choose>
 						<c:when test="${voteQuestionVO.cno eq '0'}">
-							<dt>${voteQuestionVO.qno}. ${voteQuestionVO.content}</dt>
+							<dt class='question-title'>${voteQuestionVO.qno}. ${voteQuestionVO.content}</dt>
 						</c:when>
 						<c:otherwise>
-							<dd><input type='radio' name='choice-${voteQuestionVO.vidx}-${voteQuestionVO.qno}-${voteQuestionVO.cno}'>${voteQuestionVO.content}
+							<dd><input type='radio' class='radio-${voteQuestionVO.qno}' name='choice-${voteQuestionVO.vidx}-${voteQuestionVO.qno}-${voteQuestionVO.cno}'>${voteQuestionVO.content}
 							<c:if test="${voteQuestionVO.attach ne null }">
 								<a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="auto top" data-content=""><img src='${voteQuestionVO.attach}' class="img-thumbnail" width="50"></a>
 							</c:if>
