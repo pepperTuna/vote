@@ -16,6 +16,15 @@ function pwCheck() {
 		return true;
 	}
 }
+function nameCheck() {
+	if ($("#username").val()=="") {
+		alert("이름 입력해주세요.");
+		
+		return false;
+	} else {
+		return true;
+	}
+}
 // 비밀번호와 비밀번호 확인 일치여부
 function pwCheck2() {
 	if ($("#userpwCh").val() != frmJoin.userpw.value) {
@@ -28,6 +37,7 @@ function pwCheck2() {
 $(function() {
 	var userid = $("#userid");
 	var userpw = $("#userpw");
+	var username = $("#username");
 	var duplch = false;
 	
 	$("#userid").focusout(function() {
@@ -62,6 +72,9 @@ $(function() {
 	$("#userpwCh").focusout(function() {
 		pwCheck2();
 	});
+	$("#username").focusout(function(){
+		nameCheck();
+	});
 	$("#join").click(function() {
 						if (idCheck() && pwCheck() && pwCheck2()) {
 							if (duplch) {
@@ -70,14 +83,17 @@ $(function() {
 											url : "addUser",
 											contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 											data : {
-												userid : encodeURI(userid.val()),
-												userpw : encodeURI(userpw.val()),
+												userid : userid.val(),
+												userpw : userpw.val(),
+												username : encodeURIComponent(username.val())
 											},
 											success : function(result) {
 												if (result == 1) {
 													alert("회원가입 되었습니다.");
+													location.href="/";
 												} else {
 													alert("회원가입에 실패했습니다.");
+													location.href="/join";
 												}
 											},
 											error : function(request, status,

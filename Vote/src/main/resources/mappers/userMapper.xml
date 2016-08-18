@@ -22,4 +22,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM user
 		WHERE userid = #{userid}
 	</select>
+	
+	<insert id="joinUser">
+		INSERT INTO user (userid, userpw, username)
+		values(#{userid},#{userpw}, #{username})
+	</insert>
 </mapper>

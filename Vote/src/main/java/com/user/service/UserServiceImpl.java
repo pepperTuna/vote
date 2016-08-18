@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService{
 	public int duplCheck(UserVO uservo) {
 		return dao.duplCheck(uservo);
 	}
+
+	@Override
+	public int joinUser(UserVO uservo) {
+		return dao.joinUser(uservo);
+	}
 }
