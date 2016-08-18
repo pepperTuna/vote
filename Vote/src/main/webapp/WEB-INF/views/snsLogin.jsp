@@ -18,12 +18,14 @@
 	<div class="container">
 		<form class="form-signin">
 			<h2 class="form-signin-heading">시작하기</h2>
+			<input type="text" id="inputId" class="form-control" placeholder="아이디 입력">
+			<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호 입력">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">로그인하기</button><br>
+			<a href="/join"><button class="btn btn-lg btn-primary btn-block">가입하기</button></a>
+			<h2 class="form-signin-heading">SNS로 로그인하기</h2>
 			<div id="naver_id_login"></div>
 			<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">페이스북으로 로그인</div>
 			<br><a id="kakao-login-btn"></a>
-			<input type="text" id="inputId" class="form-control" placeholder="사용할 아이디 입력" required>
-			<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호 입력" required>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">가입하기</button>
 		</form>
 	</div>
 	<form name="snsform" method="post" action="/user/login">

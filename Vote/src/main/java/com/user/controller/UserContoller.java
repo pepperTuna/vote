@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.user.domain.UserVO;
 import com.user.service.UserService;
-import com.vote.util.voteUtil;
+import com.vote.util.VoteUtil;
 
 @Controller
 public class UserContoller {
@@ -35,8 +35,7 @@ public class UserContoller {
 //		if(userService.checkRegisteredUser(uservo)==0){
 //			userService.joinSnsUser(uservo);
 //		}
-		voteUtil util = new voteUtil();
-		System.out.println(util.encodingToUTF(request.getParameter("username")));
+		System.out.println(VoteUtil.encodingToUTF(request.getParameter("username")));
 		
 		System.out.println("ID : "+request.getParameter("snsid")+"\n 이름: "+request.getParameter("username"));
 		System.out.println("ID : "+uservo.getSnsid()+"\n 이름: "+uservo.getUsername());
