@@ -29,5 +29,9 @@ public class UserDAOImpl implements UserDAO{
 	public int duplCheck(UserVO uservo) {
 		return session.selectOne(namespace+".duplCheck",uservo);
 	}
-	
+
+	@Override
+	public int joinUser(UserVO uservo) {
+		return session.insert(namespace+".joinUser",uservo);
+	}
 }

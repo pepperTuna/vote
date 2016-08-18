@@ -30,6 +30,10 @@
 						placeholder="Retype Password">
 				</div>
 				<!-- /.col -->
+				<div class="form-group has-feedback">
+					<input type="text" id="username" class="form-control"
+						placeholder="이름">
+				</div>
 				<div>
 					<button type="button" id="join" name="join"
 						class="btn btn-primary btn-block btn-flat">가입하기</button>
