@@ -6,4 +6,5 @@ import com.result.domain.ResultVO;
 
 public interface ResultService {
 	public List<ResultVO> readResult(int vidx);
+	public void createResult(String result, int vidx);
 }

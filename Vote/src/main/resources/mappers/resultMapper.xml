@@ -4,8 +4,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.result.mapper.resultMapper">
-	<select id="readResult" resultType="com.result.domain.ResultVO">
+	<select id="readResultList" resultType="com.result.domain.ResultVO">
 		select * from VOTE_RESULT 
-		where vIdx=#{vidx}
+		where VNO=#{vno}
 	</select>
+	
+	<insert id="createResult" parameterType="com.result.domain.ResultVO">
+		insert into VOTE_RESULT(VNO, QNO, CNO, RUSER )
+		VALUES(#{vno}, #{qno}, #{cno}, #{ruser})
+	</insert>
 </mapper>

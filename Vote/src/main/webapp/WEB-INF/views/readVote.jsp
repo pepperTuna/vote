@@ -80,5 +80,9 @@
 				</address>
 	   		</div>
 		</div>
+		<form name="createForm" action="/createResult" method="post">
+			<input type="hidden" name="result"/>
+			<input type="hidden" name="vidx" value="${voteVO.vidx}"/>
+		</form>
 	</body>
 </html>

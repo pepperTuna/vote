@@ -17,4 +17,21 @@ public class ResultServiceImpl implements ResultService{
 	public List<ResultVO> readResult(int vidx){
 		return dao.readResult(vidx);
 	}
+	
+	public void createResult(String result, int vidx){
+		String[] resultList = result.split("\\|");
+		int length = Integer.parseInt(resultList[0]);
+		
+
+		for (int i = 1; i <= length; i++) {
+			ResultVO vo = new ResultVO();
+			vo.setVno(vidx);
+			vo.setRuser("noname");
+			vo.setQno(i);
+			vo.setCno(Integer.parseInt(resultList[i]));
+			dao.createResult(vo);
+		}
+		
+		
+	}
 }

@@ -28,36 +28,28 @@ $(document).ready(function(){
 	
 	$('#btn_submit').on('click', function(e) {
 		if(confirm("투표를 마치시겠습니까?") == true){
-			
-			var map = new Object();
-			
+
 			var qLength = $('.question-title').length;
-			map.length = qLength;
+			
+			var result = qLength + '';
+
+			result['abc'+1] = 'test';
 			
 			for(var i=1;i<=qLength;i++){
 				var checked = $('input:radio[class="radio-'+i+'"]:checked').attr('name');
 
 				if(checked == null){
+					alert('모든 항목을 선택해주세요.');
 					return;
 				}else{
 					var index = checked.substring(checked.lastIndexOf('-')+1, checked.length);
-					map[''+i] = index;
+					result = result + '|' + index;
 				}
-				
 			}
 			
-			var jsonString = JSON.stringify(map);
-			
-			$.ajax({
-				url:'/createResult',
-				contentType : 'application/json;charset=UTF-8',
-				type:'post',
-				dataType:'json',
-				data:jsonString,
-				success:function(data){
-					console.log(data);
-				}
-			});			
+			var form = document.createForm;
+			form.result.value=result;
+			form.submit();
 			
 			alert("투표를 완료했습니다.");
 		} else {

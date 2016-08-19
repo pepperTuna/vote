@@ -32,13 +32,8 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 		int questionLen = multipartRequest.getParameter("vote_length")!=null ? Integer.parseInt(multipartRequest.getParameter("vote_length")) : 0;
 		String choiceLen = multipartRequest.getParameter("choice_length").toString();
 		String[] choice = choiceLen.split("\\|");
-		
-		System.out.println("LEN==========================");
-		System.out.println(questionLen + " /////////////// "+choiceLen);
-		System.out.println("LEN==========================");
 
 		for (int i = 0; i < questionLen; i++) {
-			
 			String questionText = "question-"+(i+1);
 			questionText = multipartRequest.getParameter(questionText);
 			

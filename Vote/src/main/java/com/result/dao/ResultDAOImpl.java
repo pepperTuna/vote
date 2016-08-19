@@ -16,7 +16,11 @@ public class ResultDAOImpl implements ResultDAO{
 	@Autowired
 	SqlSession sqlSession;
 	
-	public List<ResultVO> readResult(int vidx){
-		return sqlSession.selectList(namespace+".readResultList");
+	public List<ResultVO> readResult(int vno){
+		return sqlSession.selectList(namespace+".readResultList", vno);
+	}
+	
+	public void createResult(ResultVO vo){
+		sqlSession.insert(namespace+".createResult",vo);
 	}
 }
