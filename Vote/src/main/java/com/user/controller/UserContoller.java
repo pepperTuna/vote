@@ -1,7 +1,5 @@
 package com.user.controller;
 
-import java.net.URLDecoder;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,10 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.user.domain.UserVO;
 import com.user.service.UserService;
-import com.vote.util.VoteUtil;
 
 @Controller
 public class UserContoller {
@@ -27,20 +25,44 @@ public class UserContoller {
 //   }
    
    @RequestMapping(value = "/snsLogin", method = RequestMethod.GET)
-   public String snsLogin() {
-      return "snsLogin";
+   public String snsLogin(HttpServletRequest request) {
+	   
+	   return "snsLogin";
    }
    
-   @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-   public void userLogin(HttpServletRequest request, UserVO uservo, Model model) throws Exception {
-//      System.out.println(userService.checkRegisterdUser(uservo));
-//      if(userService.checkRegisteredUser(uservo)==0){
-//         userService.joinSnsUser(uservo);
-//      }
-//      System.out.println(VoteUtil.encodingToUTF(request.getParameter("username")));
-      System.out.println("ID : "+request.getParameter("snsid")+"\n 이름: "+request.getParameter("username"));
-      System.out.println("ID : "+uservo.getSnsid()+"\n 이름: "+uservo.getUsername());
-      
+   @RequestMapping(value = "/snsLogin", method = RequestMethod.POST)
+   public String userLogin(HttpServletRequest request, UserVO uservo, RedirectAttributes rttr, Model model) throws Exception {
+
+	   System.out.println(uservo);
+	   
+	   UserVO uvo = null;
+	   //그냥 로그인
+	   if(uservo.getSnstype().equals("0"))
+	   {
+		   uvo = userService.login(uservo);
+		   
+		   if (uvo == null)
+		   {
+			   System.out.println("실패");
+			   rttr.addFlashAttribute("MSG", "fail");
+			   return "redirect:/snsLogin";
+			   
+		   }
+
+		   model.addAttribute("userVO", uvo);
+		   return "redirect:/vote/";
+		   
+	   }
+	   //SNS로 로그인
+	   else
+	   {
+		   if(userService.checkRegisteredUser(uservo) == 0) {
+			   userService.joinSnsUser(uservo);
+		   }
+		   
+		   return "redirect:/vote/";
+	   } 
+	   
    }
    
    @RequestMapping("/join")

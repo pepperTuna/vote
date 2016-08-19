@@ -13,22 +13,31 @@
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<title>시작하기</title>
+	<script>
+	var msg = '${MSG}';
+
+	if (msg == 'fail') {
+		alert("아이디와 비밀번호를 확인하세요.");
+	}
+	
+	</script>
 </head>
 <body>
 	<div class="container">
-		<form class="form-signin">
+		<form action="/snsLogin" method="POST" class="form-signin">
 			<h2 class="form-signin-heading">시작하기</h2>
-			<input type="text" id="inputId" class="form-control" placeholder="아이디 입력">
-			<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호 입력">
-			<button class="btn btn-lg btn-primary btn-block" type="submit">로그인하기</button><br>
-			<a href="/join"><button class="btn btn-lg btn-primary btn-block">가입하기</button></a>
+			<input type="text" name="userid" class="form-control" placeholder="아이디 입력">
+			<input type="password" name="userpw" class="form-control" placeholder="비밀번호 입력">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">로그인하기</button>
+			<a href="/join"><h5>아직 회원이 아니십니까?</h5></a>
 			<h2 class="form-signin-heading">SNS로 로그인하기</h2>
 			<div id="naver_id_login"></div>
 			<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">페이스북으로 로그인</div>
 			<br><a id="kakao-login-btn"></a>
+			<input type="hidden" name="snstype" value="0" />
 		</form>
 	</div>
-	<form name="snsform" method="post" action="/user/login">
+	<form name="snsform" method="post" action="/snsLogin">
 		<input type="hidden" name="snsid" />
 		<input type="hidden" name="snstype" />
 		<input type="hidden" name="username" />

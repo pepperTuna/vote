@@ -1,5 +1,7 @@
 package com.user.service;
 
+import java.util.UUID;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -15,7 +17,17 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int joinSnsUser(UserVO uservo) {
+		
+		UUID uid = UUID.randomUUID();
+		
+		uservo.setUserid(uid.toString());
+		
 		return dao.joinSnsUser(uservo);
+	}
+
+	@Override
+	public UserVO login(UserVO uservo) {
+		return dao.login(uservo);
 	}
 
 	@Override

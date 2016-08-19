@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 회원 가입 -->
 	<insert id="joinSnsUser">
-		insert into user (userid, userpw,username,snsid,snstype)
+		insert into user (userid, username, snsid, snstype)
 		values (#{userid}, #{username}, #{snsid}, #{snstype})
 	</insert>
 	
@@ -27,4 +27,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO user (userid, userpw, username)
 		values(#{userid},#{userpw}, #{username})
 	</insert>
+	
+	<select id="loginUser" resultType="com.user.domain.UserVO">
+		SELECT userid, username
+		FROM user
+		WHERE userid=#{userid} and userpw=#{userpw}
+	</select>
 </mapper>

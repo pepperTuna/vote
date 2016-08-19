@@ -17,7 +17,12 @@ public class UserDAOImpl implements UserDAO{
 	
 	@Override
 	public int joinSnsUser(UserVO uservo) {
-		return session.insert(namespace+".createUser",uservo);
+		return session.insert(namespace+".joinSnsUser",uservo);
+	}
+
+	@Override
+	public UserVO login(UserVO uservo) {
+		return session.selectOne(namespace+".loginUser", uservo);
 	}
 
 	@Override
