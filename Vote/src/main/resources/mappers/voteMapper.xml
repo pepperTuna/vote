@@ -7,14 +7,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 설문 생성 -->
 	<insert id="createVote" parameterType="com.vote.domain.VoteVO" useGeneratedKeys="true" keyProperty="vidx" keyColumn="vidx" >
-		insert into VOTE (vWriter, vTitle)
-		values (#{vWriter}, #{vTitle})
+		insert into VOTE (VWRITER, VTITLE)
+		values (#{vwriter}, #{vtitle})
 	</insert>
 
 	<!-- 질문, 선택지 생성 -->
 	<insert id="createQuestion">
-		insert into VOTE_QUESTION (vIdx, qNo, cNo, content, attach, attachType)
-		values (#{vIdx}, #{qNo}, #{cNo}, #{content}, #{attach}, #{attachType})
+		insert into VOTE_QUESTION (VIDX, QNO, CNO, CONTENT, ATTACH, ATTACHTYPE)
+		values (#{vidx}, #{qno}, #{cno}, #{content}, #{attach}, #{attachtype})
 	</insert>
 	
 	<!-- 설문 결과 생성 -->
