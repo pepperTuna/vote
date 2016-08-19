@@ -24,12 +24,14 @@ public class ResultController {
 	
 	@RequestMapping(value="/readResult", method=RequestMethod.GET)
 	public void readResult(@RequestParam("vidx") int vidx, Model model) throws Exception{
+		// 이 부분 카운트세는걸로 변경해야함
+		
 		List<ResultVO> resultList = resultService.readResult(vidx);
 		
-		List<VoteQuestionVO> questionList = voteQuestionService.readQuestionResult(vidx, resultList);
+		//List<VoteQuestionVO> questionList = voteQuestionService.readQuestionResult(vidx, resultList);
 		
 		model.addAttribute("resultList", resultList);
-		model.addAttribute("questionList", questionList);
+		//model.addAttribute("questionList", questionList);
 	}
 	
 	@RequestMapping(value="/createResult", method=RequestMethod.POST)

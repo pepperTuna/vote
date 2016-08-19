@@ -2,7 +2,9 @@ package com.vote.service;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -74,32 +76,6 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 	@Override
 	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception {
 		return dao.readQuestion(v_idx);
-	}
-	
-	@Override
-	public List<VoteQuestionVO> readQuestionResult(Integer v_idx, List<ResultVO> resultVOList) throws Exception {
-		List<VoteQuestionVO> voteQuestionVoList = dao.readQuestion(v_idx);
-		List<VoteQuestionVO> resultList = new ArrayList<VoteQuestionVO>();
-		
-		int resultArr[] = new int[resultVOList.size()];
-		
-		int i=0;
-		for(ResultVO vo : resultVOList){
-			resultArr[i++] = vo.getCno();
-		}
-		
-		
-		int j=1;
-		int k=0;
-		for(VoteQuestionVO vo : voteQuestionVoList ){
-			if((vo.getQno() == (j++) && vo.getCno() == resultArr[(k++)])){
-				resultList.add(vo);
-			}else{
-				// 답변에 해당되는 요소만 추출하기때문에 나머지 요소는 다른 작업 안함.
-			}
-		}
-		
-		return resultList;
 	}
 	
 	@Override

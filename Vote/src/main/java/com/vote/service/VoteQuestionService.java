@@ -13,8 +13,6 @@ public interface VoteQuestionService {
 	  
 	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception;
 	
-	public List<VoteQuestionVO> readQuestionResult(Integer v_idx, List<ResultVO> resultVOList) throws Exception;
-	  
 	public void updateQuestion(VoteQuestionVO vo) throws Exception;
 	  
 	public void deleteQuestion(VoteQuestionVO vo) throws Exception;
