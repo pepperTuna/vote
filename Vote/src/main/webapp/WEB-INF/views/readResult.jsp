@@ -17,6 +17,10 @@
 		<c:forEach items="${resultList}" var="ResultVO">
 			${ResultVO.qno }번에  ${ResultVO.cno }번 대답함	<br/>
 		</c:forEach>
+		
+		<c:forEach items="${questionList}" var="VoteQuestionVO">
+			${VoteQuestionVO.qno }번에  ${VoteQuestionVO.cno }번 의  ${VoteQuestionVO.content } <br/>
+		</c:forEach>
 	</div>
 </body>
 </html>
