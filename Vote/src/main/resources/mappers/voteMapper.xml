@@ -19,92 +19,92 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 설문 결과 생성 -->
 	<insert id="createResult">
-		insert into VOTE_RESULT (rUser, vNo, qNo, cNo)
-		values (#{rUser}, #{vNo}, #{qNo}, #{cNo})
+		insert into VOTE_RESULT (RUSER, VNO, QNO, CNO)
+		values (#{ruser}, #{vno}, #{qno}, #{cno})
 	</insert>
 	
 	<!-- 설문 출력 -->
 	<select id="readVote" resultType="com.vote.domain.VoteVO">
-		select vIdx, vWriter, vTitle, vActive, vStatus, vUpdateDate
+		select VIDX, VWRITER, VTITLE, VACTIVE, VSTATUS, VUPDATEDATE
 		from VOTE
-		where vIdx=#{vIdx}
+		where vIdx=#{vidx}
 	</select>
 	
 	<select id="listVote" resultType="com.vote.domain.VoteVO">
 	<![CDATA[
-		select vIdx, vWriter, vTitle, vStatus, vUpdateDate
+		select VIDX, VWRITER, VTITLE, VSTATUS, VUPDATEDATE
 		from VOTE
-		where vIdx > 0 and vActive = "Y"
-		order by vIdx desc, vUpdateDate desc
+		where VIDX > 0 and VACTIVE = "Y"
+		order by VIDX desc, VUPDATEDATE desc
 	]]>
 	</select>
 	
 	<!-- 전체 설문 출력 -->
 	<select id="readVoteList" resultType="com.vote.domain.VoteVO">
 	<![CDATA[
-		select vIdx, vWriter, vTitle, vStatus, vUpdateDate
+		select VIDX, VWRITER, VTITLE, VSTATUS, VUPDATEDATE
 		from VOTE
-		where vIdx > 0 and vWriter=#{vWriter}
-		ordry by vIdx desc, vUpdateDate desc
+		where VIDX > 0 and VWRITER=#{vwriter}
+		ordry by VIDX desc, VUPDATEDATE desc
 	]]>
 	</select>
 	
 	<!-- 질문, 선택지 출력 -->
 	<select id="readQuestion" resultType="com.vote.domain.VoteQuestionVO">
-		select vIdx, qNo, cNo, content, attach, attachType
+		select VIDX, QNO, CNO, CONTENT, ATTACH, ATTACHTYPE
 		from VOTE_QUESTION 
-		where vIdx=#{vIdx}
-		order by vIdx asc
+		where VIDX=#{vidx}
+		order by VIDX asc
 	</select>
 	
 	<!-- 설문 결과 출력 -->
 	<select id="readResult" resultType="com.result.domain.ResultVO">
-		select rUser, vNo, qNo, cNo, vUpdateDate
+		select RUSER, VNO, QNO, CNO, VUPDATEDATE
 		from VOTE_RESULT
-		where rUser=#{rUser}
-		order by vNo desc, vUpdateDate desc
+		where RUSER=#{ruser}
+		order by VNO desc, VUPDATEDATE desc
 	</select>
 	
 	<!-- 설문 제목 수정 -->
 	<update id="updateVote">
-		update VOTE set vTitle=#{vTitle}
-		where vIdx=#{vIdx}
+		update VOTE set VTITLE=#{vtitle}
+		where VIDX=#{vidx}
 	</update>
 
 	<!-- 질문, 선택지 내용 수정 -->
 	<update id="updateQuestion">
 		update VOTE_QUESTION
-		set content=#{content}, attach=#{attach}, attachType=#{attachType}
-		where vIdx=#{vIdx} and qNo=#{qNo}, cNo=#{cNo}
+		set CONTENT=#{content}, ATTACH=#{attach}, ATTACHTYPE=#{attachType}
+		where VIDX=#{vidx} and QNO=#{qno}, CNO=#{cno}
 	</update>
 	
 	<!-- 설문 결과 수정 -->
 	<update id="updateResult">
 		update VOTE_RESULT
-		set cNo = #{cNo}
-		where rUser=#{rUser} and vNo=#{vNo} and cNo=#{cNo}
+		set CNO = #{cno}
+		where RUSER=#{ruser} and VNO=#{vno} and CNO=#{cno}
 	</update>
 	<!-- 설문 삭제 -->
 	<delete id="deleteVote">
 		update VOTE set ACTIVE = 'N'
-		where vIdx=#{vIdx}
+		where VIDX=#{vidx}
 	</delete>
 
 	<!-- 질문 삭제 -->
 	<delete id="deleteQusetion">
 		delete from VOTE_QUESTION
-		where vIdx=#{vIdx} and qNo=#{qNo}
+		where VIDX=#{vidx} and QNO=#{qno}
 	</delete>
 	
 	<!-- 선택지 삭제 -->
 	<delete id="deleteChoice">
 		delete from VOTE_QUESTION
-		where vIdx=#{vIdx} and qNo=#{qNo} and cNo=#{cNo}
+		where VIDX=#{vidx} and QNO=#{qno} and CNO=#{cno}
 	</delete>
 	
 	<!-- 설문 결과 삭제 -->
 	<delete id="deleteResult">
 		delete from VOTE_RESULT
-		where rUser=#{rUser} and qNo=#{qNo} and cNo=#{cNo}
+		where RUSER=#{ruser} and QNO=#{qno} and CNO=#{cno}
 	</delete>
 </mapper>
