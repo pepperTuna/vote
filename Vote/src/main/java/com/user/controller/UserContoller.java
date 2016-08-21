@@ -26,43 +26,43 @@ public class UserContoller {
    
    @RequestMapping(value = "/snsLogin", method = RequestMethod.GET)
    public String snsLogin(HttpServletRequest request) {
-	   
-	   return "snsLogin";
+      
+      return "snsLogin";
    }
    
    @RequestMapping(value = "/snsLogin", method = RequestMethod.POST)
    public String userLogin(HttpServletRequest request, UserVO uservo, RedirectAttributes rttr, Model model) throws Exception {
 
-	   System.out.println(uservo);
-	   
-	   UserVO uvo = null;
-	   //그냥 로그인
-	   if(uservo.getSnstype().equals("0"))
-	   {
-		   uvo = userService.login(uservo);
-		   
-		   if (uvo == null)
-		   {
-			   System.out.println("실패");
-			   rttr.addFlashAttribute("MSG", "fail");
-			   return "redirect:/snsLogin";
-			   
-		   }
+      System.out.println(uservo);
+      
+      UserVO uvo = null;
+      //그냥 로그인
+      if(uservo.getSnstype().equals("0"))
+      {
+         uvo = userService.login(uservo);
+         
+         if (uvo == null)
+         {
+            System.out.println("실패");
+            rttr.addFlashAttribute("MSG", "fail");
+            return "redirect:/snsLogin";
+            
+         }
 
-		   model.addAttribute("userVO", uvo);
-		   return "redirect:/vote/";
-		   
-	   }
-	   //SNS로 로그인
-	   else
-	   {
-		   if(userService.checkRegisteredUser(uservo) == 0) {
-			   userService.joinSnsUser(uservo);
-		   }
-		   
-		   return "redirect:/vote/";
-	   } 
-	   
+         model.addAttribute("userVO", uvo);
+         return "redirect:/";
+         
+      }
+      //SNS로 로그인
+      else
+      {
+         if(userService.checkRegisteredUser(uservo) == 0) {
+            userService.joinSnsUser(uservo);
+         }
+         
+         return "redirect:/";
+      } 
+      
    }
    
    @RequestMapping("/join")

@@ -27,15 +27,21 @@ public class VoteServiceImpl implements VoteService {
 	public List<VoteVO> listVote() throws Exception {
 		return dao.listVote();
 	}
-	
+
 	@Override
-	public List<VoteVO> readVoteListWithPaging(int page, String writer){
+	public List<VoteVO> readVoteListWithPaging(int page, String writer) {
 		return dao.readVoteListWithPaging(page, writer);
 	}
 
 	@Override
-	public void updateVote(VoteVO vo) throws Exception {
-		dao.updateVote(vo);
+	@Deprecated
+	public int updateVote(HttpServletRequest request) throws Exception {
+		System.out.println(request.toString());
+		VoteVO voteVo = new VoteVO();
+		voteVo.setVtitle(request.getParameter("vote_text"));
+		voteVo.setVidx(Integer.parseInt(request.getParameter("vidx")));
+		int idx = dao.updateVote(voteVo);
+		return idx;
 	}
 
 	@Override

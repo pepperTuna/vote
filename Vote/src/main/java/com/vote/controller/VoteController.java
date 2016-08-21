@@ -93,16 +93,19 @@ public class VoteController {
 	   model.addAttribute("list", voteQuestionService.readQuestion(vIdx));
    }
 
-   /*
    @RequestMapping(value = "/updateVote", method = RequestMethod.POST)
-   
-   public String updateVote(VoteVO vo, RedirectAttributes rttr) throws Exception {
-������������
-	   rttr.addFlashAttribute("msg", "SUCCESS");
+   public String updateVote(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-	   return "redirect:/listVote";
+      int vidx = Integer.parseInt(request.getParameter("vidx"));
+      
+      voteService.deleteVote(vidx);
+      voteQuestionService.deleteQuestion(vidx);
+      int idx = voteService.createVote(request);
+      voteQuestionService.createQuestion(request, uploadPath, idx);
+      
+      return "listVote";
    }
-   */
+   
    @RequestMapping(value = "/deleteVote", method = RequestMethod.POST)
    public String deleteVote(@RequestParam("vidx") int vIdx, RedirectAttributes rttr) throws Exception {
 	   voteService.deleteVote(vIdx);

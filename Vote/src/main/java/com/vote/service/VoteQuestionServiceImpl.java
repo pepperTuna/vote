@@ -79,19 +79,63 @@ public class VoteQuestionServiceImpl implements VoteQuestionService {
 	}
 	
 	@Override
-	public void updateQuestion(VoteQuestionVO vo) throws Exception {
-		dao.updateQuestion(vo);	
-	}
-	
-	@Override
-	public void deleteQuestion(VoteQuestionVO vo) throws Exception {
-		dao.deleteQuestion(vo);
-	}
-	
-	@Override
-	public void deleteChoice(VoteQuestionVO vo) throws Exception {
-		dao.deleteChoice(vo);
-	}
+	   public void updateQuestion(HttpServletRequest request, String uploadPath, int idx) throws Exception {
+	      MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+
+	      int questionLen = multipartRequest.getParameter("vote_length")!=null ? Integer.parseInt(multipartRequest.getParameter("vote_length")) : 0;
+	      String choiceLen = multipartRequest.getParameter("choice_length").toString();
+	      String[] choice = choiceLen.split("\\|");
+	      
+	      System.out.println("LEN==========================");
+	      System.out.println(questionLen + " /////////////// "+choiceLen);
+	      System.out.println("LEN==========================");
+
+	      for (int i = 0; i < questionLen; i++) {
+	         
+	         String questionText = "question-"+(i+1);
+	         questionText = multipartRequest.getParameter(questionText);
+	         
+	         for (int j = 0; j <= Integer.parseInt(choice[i]); j++) {            
+	            VoteQuestionVO vo = new VoteQuestionVO();
+	            String contentText = "";
+	            
+	            if(j==0){
+	               contentText = questionText;
+	            }else{
+	               String choiceText = "choice-text-" + (i+1) + "-" + (j);
+	               
+	               choiceText = multipartRequest.getParameter(choiceText);
+	               String choiceFile = "choice-file-" + (i+1) + "-" + (j);
+	               String uploadedFilePath = null;
+	               MultipartFile file = multipartRequest.getFile(choiceFile);
+	   
+	               if (file != null) {
+	                  
+	                  if (!file.isEmpty()) {
+	                     
+	                  }
+	               }
+	               contentText = choiceText;               
+	            }
+	            
+	            vo.setVidx(idx);
+	            vo.setQno(i+1);
+	            vo.setCno(j);
+	            vo.setContent(contentText != null ? contentText : "");
+	            dao.updateQuestion(vo);
+	         }
+	      }
+	   }
+	   
+	   @Override
+	   public void deleteQuestion(Integer v_idx) throws Exception {
+	      dao.deleteQuestion(v_idx);
+	   }
+	   
+	   @Override
+	   public void deleteChoice(VoteQuestionVO vo) throws Exception {
+	      dao.deleteChoice(vo);
+	   }
 		
 	@Override
 	public String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {

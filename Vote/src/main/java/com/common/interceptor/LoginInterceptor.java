@@ -12,39 +12,38 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-	private static final String LOGIN = "login";
-	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+   private static final String LOGIN = "login";
+   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
-	@Override
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
+   @Override
+   public void postHandle(HttpServletRequest request,
+         HttpServletResponse response, Object handler,
+         ModelAndView modelAndView) throws Exception {
 
-		HttpSession session = request.getSession();
+      HttpSession session = request.getSession();
 
-		ModelMap modelMap = modelAndView.getModelMap();
-		Object userVO = modelMap.get("userVO");
+      ModelMap modelMap = modelAndView.getModelMap();
+      Object userVO = modelMap.get("userVO");
+      
+      if(userVO != null){
 
-		System.out.println("인터셉터");
-		if(userVO != null){
+         logger.info("new login success");
+         session.setAttribute(LOGIN, userVO);
+         response.sendRedirect("/vote/");
 
-			logger.info("new login success");
-			session.setAttribute(LOGIN, userVO);
-			response.sendRedirect("/vote/");
+      }
+   }
 
-		}
-	}
+   @Override
+   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+      HttpSession session = request.getSession();
 
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute(LOGIN) != null) {
-			logger.info("clear login data before");
-			session.removeAttribute(LOGIN);
-		}
-		
-		return true;
-	}
+      if (session.getAttribute(LOGIN) != null) {
+         logger.info("clear login data before");
+         session.removeAttribute(LOGIN);
+      }
+      
+      return true;
+   }
 }

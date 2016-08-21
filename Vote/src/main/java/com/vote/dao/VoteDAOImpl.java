@@ -15,14 +15,14 @@ import com.vote.domain.VoteVO;
 
 @Repository
 public class VoteDAOImpl implements VoteDAO {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(VoteDAOImpl.class);
 
 	@Inject
 	private SqlSession session;
-	
+
 	private static String namespace = "com.vote.mapper.VoteMapper";
-	
+
 	@Override
 	public int createVote(VoteVO vo) throws Exception {
 		session.insert(namespace + ".createVote", vo);
@@ -31,37 +31,38 @@ public class VoteDAOImpl implements VoteDAO {
 
 	@Override
 	public VoteVO readVote(Integer v_idx) throws Exception {
-	    return session.selectOne(namespace + ".readVote", v_idx);
+		return session.selectOne(namespace + ".readVote", v_idx);
 	}
 
 	@Override
 	public List<VoteVO> listVote() throws Exception {
 		return session.selectList(namespace + ".listVote");
 	}
-	
+
 	@Override
-	public void updateVote(VoteVO vo) throws Exception {
-	    session.update(namespace+".updateVote", vo);
+	public int updateVote(VoteVO vo) throws Exception {
+		session.update(namespace + ".updateVote", vo);
+		return vo.getVidx();
 	}
 
 	@Override
 	public void deleteVote(Integer v_idx) throws Exception {
-	    session.update(namespace+".deleteVote", v_idx);
+		session.update(namespace + ".deleteVote", v_idx);
 	}
-	
+
 	@Override
-	public List<VoteVO> readVoteListWithPaging(int page, String writer){
+	public List<VoteVO> readVoteListWithPaging(int page, String writer) {
 		Map map = new HashMap();
 		map.put("page", page);
 		map.put("writer", writer);
-		
-		if(page<=0){
+
+		if (page <= 0) {
 			page = 1;
 		}
-		
+
 		page = (page - 1) * 10;
-		
-		return session.selectList(namespace+".readVoteListWithPaging",map);
+
+		return session.selectList(namespace + ".readVoteListWithPaging", map);
 	}
 
 }

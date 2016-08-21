@@ -96,13 +96,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where RUSER=#{ruser} and VNO=#{vno} and CNO=#{cno}
 	</update>
 	<!-- 설문 삭제 -->
-	<delete id="deleteVote">
-		update VOTE set ACTIVE = 'N'
-		where VIDX=#{vidx}
-	</delete>
+   <delete id="deleteVote">
+      delete from VOTE
+      where VIDX=#{vidx}
+   </delete>
 
 	<!-- 질문 삭제 -->
-	<delete id="deleteQusetion">
+	<delete id="deleteQuestion">
 		delete from VOTE_QUESTION
 		where VIDX=#{vidx} and QNO=#{qno}
 	</delete>

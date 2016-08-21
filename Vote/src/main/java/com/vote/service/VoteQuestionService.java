@@ -13,9 +13,9 @@ public interface VoteQuestionService {
 	  
 	public List<VoteQuestionVO> readQuestion(Integer v_idx) throws Exception;
 	
-	public void updateQuestion(VoteQuestionVO vo) throws Exception;
+	public void updateQuestion(HttpServletRequest request, String uploadPath, int idx) throws Exception;
 	  
-	public void deleteQuestion(VoteQuestionVO vo) throws Exception;
+	public void deleteQuestion(Integer v_idx) throws Exception;
 	  
 	public void deleteChoice(VoteQuestionVO vo) throws Exception;
 	
