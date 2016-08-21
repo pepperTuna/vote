@@ -5,9 +5,9 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/vote.css" />
-<script   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script type="text/javascript" src="../resources/js/vote.js" charset='utf-8'></script>
+  	<link href="<c:url value="/resources/bootstrap/css/vote.css"/>" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="<c:url value='/resources/js/vote.js'/>" charset='utf-8'></script>
 <title>설문 수정</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
          <form name='vote' action='/updateVote' method='POST' enctype='multipart/form-data'>
             <input type='hidden' name='vidx' value='${voteVO.vidx }'/>
             <input type='hidden' name='vote_text' value='${voteVO.vtitle }'/>
-            제목 <span class='vote-text'>${voteVO.vtitle}</span>
+			<span class='vote-text'>설문제목 | ${voteVO.vtitle}</span>
             <ol id='question'>
                <c:forEach items="${list}" var="voteQuestionVO" varStatus="status">
                   <c:if test="${not status.first && status.current.cno eq 0}">
@@ -51,7 +51,7 @@
             <input type="hidden" name="vote_length" /> <input type="hidden" name="choice_length" />
          </form>
       </div>
-      <button type='button' id='btn_submit'>제출</button>
+      <button type='button' id='btn_submit'>수정하기</button>
    </div>
 </body>
 </html>

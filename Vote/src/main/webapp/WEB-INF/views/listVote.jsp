@@ -7,9 +7,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  		<link href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+		<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
 		<title>설문조사 목록</title>
 	</head>
 	<body>
@@ -24,7 +24,7 @@
 					<td><fmt:formatDate pattern="MM-dd HH:mm" value="${voteVO.vupdatedate}" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><a href="/readVote?vIdx=${voteVO.vidx}">${voteVO.vtitle}</a></td>
+					<td colspan="3"><a href="/readVote?vidx=${voteVO.vidx}">${voteVO.vtitle}</a></td>
 				</tr>
 				</c:if>
 			</c:forEach>
@@ -46,7 +46,7 @@
 			</c:forEach>
 			</table>
 			<a href=#><button type="button" class="btn btn-info">설문 관리</button></a>
-			<a href="/uploadForm"><button type="button" class="btn btn-primary">설문지 만들기</button></a>
+			<a href="/createVote"><button type="button" class="btn btn-primary">설문지 만들기</button></a>
 		</div>
 	</body>
 </html>
