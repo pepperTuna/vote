@@ -27,6 +27,11 @@ public class VoteServiceImpl implements VoteService {
 	public List<VoteVO> listVote() throws Exception {
 		return dao.listVote();
 	}
+	
+	@Override
+	public List<VoteVO> readVoteListWithPaging(int page, String writer){
+		return dao.readVoteListWithPaging(page, writer);
+	}
 
 	@Override
 	public void updateVote(VoteVO vo) throws Exception {
@@ -40,15 +45,10 @@ public class VoteServiceImpl implements VoteService {
 
 	@Override
 	public int createVote(HttpServletRequest request) throws Exception {
-		System.out.println("==========================");
-		System.out.println(request.toString());
-		System.out.println("==========================");
 		VoteVO voteVo = new VoteVO();
 		voteVo.setVtitle(request.getParameter("vote_text"));
 		voteVo.setVwriter("noname");
-		System.out.println("==========================");
-		System.out.println(voteVo);
-		System.out.println("==========================");
+
 		int idx = dao.createVote(voteVo);
 		return idx;
 	}

@@ -49,6 +49,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 	</select>
 	
+	<select id="readVoteListWithPaging" resultType="com.vote.domain.VoteVO" parameterType="java.util.HashMap">
+		<![CDATA[
+			SELECT VTITLE, VSTATUS
+			FROM VOTE
+			WHERE VWRITER=#{writer}
+			ORDER BY VUPDATEDATE DESC
+			limit #{page}, 10
+		]]>
+	</select>
+	
+	
 	<!-- 질문, 선택지 출력 -->
 	<select id="readQuestion" resultType="com.vote.domain.VoteQuestionVO">
 		select VIDX, QNO, CNO, CONTENT, ATTACH, ATTACHTYPE

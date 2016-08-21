@@ -11,6 +11,8 @@ public interface VoteService {
 	public VoteVO readVote(Integer v_idx) throws Exception;
 	
 	public List<VoteVO> listVote() throws Exception;
+	
+	public List<VoteVO> readVoteListWithPaging(int page, String writer);
 
 	public void updateVote(VoteVO vo) throws Exception;
 

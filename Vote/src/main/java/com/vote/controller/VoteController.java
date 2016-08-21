@@ -65,6 +65,12 @@ public class VoteController {
 	   model.addAttribute("list", voteService.listVote());
    }
    
+   @RequestMapping(value = "/listPage", method = RequestMethod.GET)
+   public void listPage(@RequestParam("page") int page, Model model) throws Exception {
+	   String writer = "noname";
+	   model.addAttribute("list", voteService.readVoteListWithPaging(page, writer));
+   }
+   
    @RequestMapping(value = "/createVote", method = RequestMethod.GET)
    public String createVote() {
 	   return "createVote";
@@ -91,7 +97,7 @@ public class VoteController {
    @RequestMapping(value = "/updateVote", method = RequestMethod.POST)
    
    public String updateVote(VoteVO vo, RedirectAttributes rttr) throws Exception {
-¤±¤¤¤··ý¤·³Ç
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	   rttr.addFlashAttribute("msg", "SUCCESS");
 
 	   return "redirect:/listVote";

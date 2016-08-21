@@ -11,6 +11,8 @@ public interface VoteDAO {
 	  
 	  public List<VoteVO> listVote() throws Exception;
 
+	  public List<VoteVO> readVoteListWithPaging(int page, String writer);
+	  
 	  public void updateVote(VoteVO vo) throws Exception;
 
 	  public void deleteVote(Integer v_idx) throws Exception;

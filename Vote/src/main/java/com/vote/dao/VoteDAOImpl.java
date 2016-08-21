@@ -1,13 +1,16 @@
 package com.vote.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.vote.controller.VoteController;
 import com.vote.domain.VoteVO;
 
 @Repository
@@ -25,7 +28,6 @@ public class VoteDAOImpl implements VoteDAO {
 		session.insert(namespace + ".createVote", vo);
 		return vo.getVidx();
 	}
-
 
 	@Override
 	public VoteVO readVote(Integer v_idx) throws Exception {
@@ -45,6 +47,21 @@ public class VoteDAOImpl implements VoteDAO {
 	@Override
 	public void deleteVote(Integer v_idx) throws Exception {
 	    session.update(namespace+".deleteVote", v_idx);
+	}
+	
+	@Override
+	public List<VoteVO> readVoteListWithPaging(int page, String writer){
+		Map map = new HashMap();
+		map.put("page", page);
+		map.put("writer", writer);
+		
+		if(page<=0){
+			page = 1;
+		}
+		
+		page = (page - 1) * 10;
+		
+		return session.selectList(namespace+".readVoteListWithPaging",map);
 	}
 
 }
