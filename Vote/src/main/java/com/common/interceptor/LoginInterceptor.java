@@ -24,13 +24,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
       ModelMap modelMap = modelAndView.getModelMap();
       Object userVO = modelMap.get("userVO");
-      
       if(userVO != null){
-
          logger.info("new login success");
          session.setAttribute(LOGIN, userVO);
-         response.sendRedirect("/vote/");
-
+         response.sendRedirect("/");
       }
    }
 

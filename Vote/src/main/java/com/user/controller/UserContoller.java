@@ -31,7 +31,7 @@ public class UserContoller {
    }
    
    @RequestMapping(value = "/snsLogin", method = RequestMethod.POST)
-   public String userLogin(HttpServletRequest request, UserVO uservo, RedirectAttributes rttr, Model model) throws Exception {
+   public void userLogin(HttpServletRequest request, UserVO uservo, RedirectAttributes rttr, Model model) throws Exception {
 
       System.out.println(uservo);
       
@@ -45,12 +45,11 @@ public class UserContoller {
          {
             System.out.println("실패");
             rttr.addFlashAttribute("MSG", "fail");
-            return "redirect:/snsLogin";
+            return;
             
          }
 
          model.addAttribute("userVO", uvo);
-         return "redirect:/";
          
       }
       //SNS로 로그인
@@ -60,7 +59,7 @@ public class UserContoller {
             userService.joinSnsUser(uservo);
          }
          
-         return "redirect:/";
+         model.addAttribute("userVO", uvo);
       } 
       
    }
