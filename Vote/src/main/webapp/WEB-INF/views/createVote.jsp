@@ -9,6 +9,13 @@
   	<link href="<c:url value="/resources/bootstrap/css/vote.css"/>" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript" src="<c:url value='/resources/js/vote.js'/>" charset='utf-8'></script>
+    <script>
+	
+		var img_plus = "<c:url value='/resources/image/img_plus.png'/>";
+		var img_remove = "<c:url value='/resources/image/img_remove.png'/>";
+		var img_upload = "<c:url value='/resources/image/img_upload_photo.png'/>";
+	
+	</script>
     <title>투표 등록</title>
 </head>
 <body>

@@ -34,8 +34,8 @@ function createQtxtbox() {
     $('#question').append("<li class='question-area'>");
     $('#question .question-area').last()
         .append("<input type='text' class='question-text' placeholder='질문을 입력하세요.'/>")
-        .append("<img src='../resources/image/img_plus.png' class='add-question'/>")
-        .append("<img src='../resources/image/img_remove.png' class='remove-question'/>")
+        .append("<img src=" + img_plus + " class='add-question'/>")
+        .append("<img src=" + img_remove + " class='remove-question'/>")
         .append("<ol class='question-choice'>");
 
     createCtxtbox($('#question .question-area').children().last());
@@ -46,10 +46,10 @@ function createCtxtbox(that) {
     $(that).append("<li class='choice-area'>");
     $(that).children().last()
         .append("<input type='text' class='choice-text' placeholder='선택지를 입력하세요.'/>")
-        .append("<img src='../resources/image/img_upload_photo.png' class='img-file-upload'/>")
+        .append("<img src=" + img_upload + " class='img-file-upload'/>")
         .append("<input type='file' class='choice-file'/>")
-        .append("<img src='../resources/image/img_plus.png' class='add-choice'/>")
-        .append("<img src='../resources/image/img_remove.png' class='remove-choice'/>");
+        .append("<img src=" + img_plus + " class='add-choice'/>")
+        .append("<img src=" + img_remove + " class='remove-choice'/>");
 
 }
 
