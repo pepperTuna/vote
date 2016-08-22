@@ -47,44 +47,44 @@ function createCtxtbox(that) {
     $(that).children().last()
         .append("<input type='text' class='choice-text' placeholder='선택지를 입력하세요.'/>")
         .append("<img src=" + img_upload + " class='img-file-upload'/>")
-        .append("<input type='file' class='choice-file'/>")
         .append("<img src=" + img_plus + " class='add-choice'/>")
-        .append("<img src=" + img_remove + " class='remove-choice'/>");
+        .append("<img src=" + img_remove + " class='remove-choice'/>")
+        .append("<input type='file' class='choice-file'/>");
 
 }
 
 function removeTxtbox(that) {
 
-	that.parentNode.remove();
+   that.parentNode.remove();
 }
 
 function hideRemovebtn(that) {
 
     if($(that).attr("class") == 'question-area') {
 
-    	if($('.question-area').parent().children().length == 1) {
+       if($('.question-area').parent().children().length == 1) {
 
-    		$('.question-area').find('.remove-question').hide();
+          $('.question-area').find('.remove-question').hide();
 
-    	} else {
+       } else {
 
-    		$('.question-area').find('.remove-question').show();
+          $('.question-area').find('.remove-question').show();
 
-    	}
+       }
 
-	} else if($(that).attr("class") == 'question-choice') {
+   } else if($(that).attr("class") == 'question-choice') {
 
-		if($(that).children().length == 1) {
+      if($(that).children().length == 1) {
 
-			$(that).find('.remove-choice').hide();
-	
-		} else {
+         $(that).find('.remove-choice').hide();
+   
+      } else {
 
-			$(that).find('.remove-choice').show();
+         $(that).find('.remove-choice').show();
 
-		}
+      }
 
-	}
+   }
 
 }
 
@@ -92,29 +92,29 @@ $(document).ready(function(){
 
     $(document).on('click','.img-file-upload', function(){
         var $this = $(this);
-        $this.next().click();
+        $this.next().next().next().click();
     });
 
-	hideRemovebtn($('.question-area'));
-	hideRemovebtn($('.question-choice'));
+   hideRemovebtn($('.question-area'));
+   hideRemovebtn($('.question-choice'));
 
-	$(document).on('click','.add-question', function(){
+   $(document).on('click','.add-question', function(){
 
-		createQtxtbox();
+      createQtxtbox();
 
-		hideRemovebtn(this.parentNode);
+      hideRemovebtn(this.parentNode);
 
-		hideRemovebtn($('#question').children().last().find('.question-choice'));
+      hideRemovebtn($('#question').children().last().find('.question-choice'));
 
-		$(window).scrollTop($(window).scrollTop() + 122);
+      $(window).scrollTop($(window).scrollTop() + 122);
 
     });
 
     $(document).on('click','.add-choice', function(){
 
-    	createCtxtbox(this.parentNode.parentNode);
+       createCtxtbox(this.parentNode.parentNode);
 
-    	hideRemovebtn(this.parentNode.parentNode);
+       hideRemovebtn(this.parentNode.parentNode);
 
         $(window).scrollTop($(window).scrollTop() + 56);
 
@@ -122,9 +122,9 @@ $(document).ready(function(){
 
     $(document).on('click','.remove-question', function(){
 
-    	var tempThis = this.parentNode;
+       var tempThis = this.parentNode;
 
-    	removeTxtbox(this);
+       removeTxtbox(this);
 
         hideRemovebtn(tempThis);
 
@@ -134,9 +134,9 @@ $(document).ready(function(){
 
     $(document).on('click','.remove-choice', function(){
 
-    	var tempThis = this.parentNode.parentNode;
+       var tempThis = this.parentNode.parentNode;
 
-		removeTxtbox(this);
+      removeTxtbox(this);
 
         hideRemovebtn(tempThis);
 
@@ -146,20 +146,20 @@ $(document).ready(function(){
 
     $('#btn_submit').on('click',function(e){
 
-    	e.preventDefault();
+       e.preventDefault();
         var votesLength = $('#question').children().length;
         var votes = $('#question').children();
         var choiceLength = ''; 
 
         for(var i = 0; i < votesLength; i++) {
-        	
-        	var questionText = votes.find('.question-text');
+           
+           var questionText = votes.find('.question-text');
             questionText.eq(0).attr('name', 'question-' + (i + 1));
 
             var choiceText = votes.eq(0).find('.choice-text');
             
             for(var j = 0; j < choiceText.length; j++) {
-            	
+               
                 choiceText.eq(j).attr('name','choice-text-' + (i + 1) + '-' + (j + 1));
                 
             }
@@ -168,7 +168,7 @@ $(document).ready(function(){
             var choiceFile = votes.find('.choice-file');
             
             for(var j = 0; j < choiceFile.length; j++) {
-            	
+               
                 choiceFile.eq(j).attr('name','choice-file-' + (i + 1) + '-' + (j + 1));
             }
 
@@ -178,7 +178,7 @@ $(document).ready(function(){
 
             votes = votes.next();
         }
-        alert(votesLength + " /// "+choiceLength);
+        //alert(votesLength + " /// "+choiceLength);
    
         var form = document.vote;
         form.vote_length.value = votesLength;
