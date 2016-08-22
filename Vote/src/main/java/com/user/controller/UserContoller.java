@@ -59,7 +59,8 @@ public class UserContoller {
             userService.joinSnsUser(uservo);
          }
          
-         model.addAttribute("userVO", uvo);
+         uvo = userService.login(uservo);
+         model.addAttribute("userVO", uservo);
       } 
       
    }

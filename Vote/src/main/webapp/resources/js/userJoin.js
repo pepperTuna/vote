@@ -92,7 +92,7 @@ $(function() {
 											success : function(result) {
 												if (result == 1) {
 													alert("회원가입 되었습니다.");
-													location.href="/";
+													location.href="/snsLogin";
 												} else {
 													alert("회원가입에 실패했습니다.");
 													location.href="/join";
