@@ -79,6 +79,7 @@ public class UserContoller {
    @ResponseBody
    public int userJoin(UserVO uservo) throws Exception{
 //      uservo.setUsername(URLDecoder.decode(uservo.getUsername(),"UTF-8"));
+	  System.out.println(uservo.getSnstype());
       System.out.println("이름 : "+uservo.getUsername());
       return userService.joinUser(uservo);
    }

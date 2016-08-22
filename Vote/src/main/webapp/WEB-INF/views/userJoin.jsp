@@ -17,6 +17,7 @@
    <div class="container">
       <form id="frmJoin" name="frmJoin" method="POST" class="form-signin">
          <h2 class="form-signin-heading">회원가입</h2>
+            <input type="hidden" id="snstype" name="snstype" value="0">
             <input type="text" name="userid" id="userid" class="form-control" placeholder="ID를 입력해주세요">
             <p class="pull-right"><button type="button" name="duplbtn" id="duplbtn" class="btn btn-info btn-sm">ID 중복 확인</button></p>
          <input type="password" name="userpw" id="userpw" class="form-control" placeholder="PW를 입력해주세요">
@@ -24,11 +25,6 @@
          <input type="text" id="username" class="form-control" placeholder="이름을 입력해주세요"><br>
          <button type="button" id="join" name="join"   class="btn btn-lg btn-primary btn-block">가입하기</button>
       </form>
-      <!--
-      <a href="/emt/findId" class="text-center">ID/</a>
-      <a href="/emt/findPw" class="text-center">PW찾기</a>
-      <br> <a href="/emt/login/login" class="text-center">기존에 가입하신 회원입니까? - 로그인</a>  
-      -->
    </div>
 </body>
 </html>

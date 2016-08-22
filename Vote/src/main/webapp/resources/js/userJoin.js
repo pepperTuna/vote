@@ -38,6 +38,7 @@ $(function() {
 	var userid = $("#userid");
 	var userpw = $("#userpw");
 	var username = $("#username");
+	var snstype = $("#snstype");
 	var duplch = false;
 	
 	$("#userid").focusout(function() {
@@ -83,9 +84,9 @@ $(function() {
 											url : "addUser",
 											contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 											data : {
+												snstype : snstype.val(),
 												userid : userid.val(),
 												userpw : userpw.val(),
-//												username : encodeURIComponent(username.val())
 												username : username.val()
 											},
 											success : function(result) {

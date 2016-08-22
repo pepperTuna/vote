@@ -53,7 +53,7 @@ public class VoteServiceImpl implements VoteService {
 	public int createVote(HttpServletRequest request) throws Exception {
 		VoteVO voteVo = new VoteVO();
 		voteVo.setVtitle(request.getParameter("vote_text"));
-		voteVo.setVwriter("noname");
+		voteVo.setVwriter(request.getParameter("userid"));
 
 		int idx = dao.createVote(voteVo);
 		return idx;
