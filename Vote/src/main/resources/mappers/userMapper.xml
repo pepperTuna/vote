@@ -24,8 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="joinUser">
-		INSERT INTO user (userid, userpw, username)
-		values(#{userid},#{userpw}, #{username})
+		INSERT INTO user (userid, userpw, username, snstype)
+		values(#{userid}, #{userpw}, #{username}, #{snstype})
 	</insert>
 	
 	<select id="loginUser" resultType="com.user.domain.UserVO">
