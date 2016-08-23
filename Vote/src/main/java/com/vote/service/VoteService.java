@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.vote.domain.PageMaker;
 import com.vote.domain.VoteVO;
 
 public interface VoteService {
@@ -19,5 +20,6 @@ public interface VoteService {
 	public void deleteVote(Integer v_idx) throws Exception;
 
 	public int createVote(HttpServletRequest request) throws Exception;
-	
+
+	public List<VoteVO> readVoteListWithPaging(PageMaker pageMaker);
 }

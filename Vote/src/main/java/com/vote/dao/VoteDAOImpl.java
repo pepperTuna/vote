@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.vote.domain.PageMaker;
 import com.vote.domain.VoteVO;
 
 @Repository
@@ -64,5 +65,14 @@ public class VoteDAOImpl implements VoteDAO {
 
 		return session.selectList(namespace + ".readVoteListWithPaging", map);
 	}
-
+	
+	@Override
+	public List<VoteVO> readVoteListWithPaging(PageMaker pageMaker){
+		return session.selectList(namespace+".readVoteListWithPaging",pageMaker);
+	}
+   
+	@Override
+	public int getTotalVote(String writer){
+	   return session.selectOne(namespace+".getTotalVote",writer);
+	}
 }

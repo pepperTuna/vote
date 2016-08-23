@@ -1,6 +1,8 @@
 package com.vote.dao;
 
 import java.util.List;
+
+import com.vote.domain.PageMaker;
 import com.vote.domain.VoteVO;
 
 public interface VoteDAO {
@@ -16,4 +18,8 @@ public interface VoteDAO {
 	  public int updateVote(VoteVO vo) throws Exception;
 
 	  public void deleteVote(Integer v_idx) throws Exception;
+	  
+	  public List<VoteVO> readVoteListWithPaging(PageMaker pageMaker);
+	  
+	  public int getTotalVote(String writer);
 }

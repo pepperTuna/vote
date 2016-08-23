@@ -76,6 +76,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by VNO desc, VUPDATEDATE desc
 	</select>
 	
+	<select id="readVoteListWithPaging" resultType="com.vote.domain.VoteVO" parameterType="com.vote.domain.PageMaker">
+		<![CDATA[
+			SELECT VIDX, VTITLE, VSTATUS, VWRITER
+			FROM VOTE
+			WHERE VWRITER=#{writer}
+			ORDER BY VIDX DESC
+			limit #{limitStart}, #{perPageNum}
+		]]>
+	</select>
+
+	<select id="getTotalVote" resultType="int" parameterType="java.lang.String">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM VOTE
+			WHERE VWRITER=#{writer}
+		]]>
+	</select>
+   
 	<!-- 설문 제목 수정 -->
 	<update id="updateVote">
 		update VOTE set VTITLE=#{vtitle}

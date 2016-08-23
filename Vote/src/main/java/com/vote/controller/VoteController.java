@@ -18,8 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.vote.domain.VoteQuestionVO;
-import com.vote.domain.VoteVO;
+import com.vote.domain.PageMaker;
 import com.vote.service.VoteQuestionService;
 import com.vote.service.VoteService;
 
@@ -66,9 +65,10 @@ public class VoteController {
    }
    
    @RequestMapping(value = "/listPage", method = RequestMethod.GET)
-   public void listPage(@RequestParam("page") int page, Model model) throws Exception {
-	   String writer = "noname";
-	   model.addAttribute("list", voteService.readVoteListWithPaging(page, writer));
+   public void listPage(PageMaker pageMaker, Model model) throws Exception {
+	   pageMaker.setWriter("testuser");
+	   model.addAttribute("limitedList", voteService.readVoteListWithPaging(pageMaker));
+	   model.addAttribute("pageMaker",pageMaker);
    }
    
    @RequestMapping(value = "/createVote", method = RequestMethod.GET)

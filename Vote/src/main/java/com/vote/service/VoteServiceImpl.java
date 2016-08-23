@@ -6,10 +6,9 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.vote.dao.VoteDAO;
+import com.vote.domain.PageMaker;
 import com.vote.domain.VoteVO;
 
 @Service
@@ -58,5 +57,12 @@ public class VoteServiceImpl implements VoteService {
 		int idx = dao.createVote(voteVo);
 		return idx;
 	}
+	@Override
+	public List<VoteVO> readVoteListWithPaging(PageMaker pageMaker){
+		int totalCount = dao.getTotalVote(pageMaker.getWriter());
 
+		pageMaker.setTotalCount(totalCount);
+		pageMaker.makePagingInfo();
+		return dao.readVoteListWithPaging(pageMaker);
+	}
 }
