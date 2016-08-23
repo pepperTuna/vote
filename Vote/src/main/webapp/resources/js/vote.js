@@ -88,27 +88,51 @@ function hideRemovebtn(that) {
 
 }
 
+
+function readURL(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+
+			$(input).prev().prev().prev().attr('src', e.target.result);
+			
+			$(input).prev().prev().prev().find("img").attr('src', e.target.result);
+			
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+
+
 $(document).ready(function(){
 
     $(document).on('click','.img-file-upload', function(){
         var $this = $(this);
         $this.next().next().next().click();
-    });
-
-   hideRemovebtn($('.question-area'));
-   hideRemovebtn($('.question-choice'));
-
-   $(document).on('click','.add-question', function(){
-
-      createQtxtbox();
-
-      hideRemovebtn(this.parentNode);
-
-      hideRemovebtn($('#question').children().last().find('.question-choice'));
-
-      $(window).scrollTop($(window).scrollTop() + 122);
+        
+        $this.next().next().next().on('change', function(){
+            readURL(this);
+        });
 
     });
+
+	hideRemovebtn($('.question-area'));
+	hideRemovebtn($('.question-choice'));
+
+	$(document).on('click','.add-question', function(){
+
+		createQtxtbox();
+
+		hideRemovebtn(this.parentNode);
+
+		hideRemovebtn($('#question').children().last().find('.question-choice'));
+
+	$(window).scrollTop($(window).scrollTop() + 122);
+
+	});
 
     $(document).on('click','.add-choice', function(){
 
