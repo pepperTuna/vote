@@ -28,17 +28,6 @@ public class VoteServiceImpl implements VoteService {
 	}
 
 	@Override
-	@Deprecated
-	public int updateVote(HttpServletRequest request) throws Exception {
-		System.out.println(request.toString());
-		VoteVO voteVo = new VoteVO();
-		voteVo.setVtitle(request.getParameter("vote_text"));
-		voteVo.setVidx(Integer.parseInt(request.getParameter("vidx")));
-		int idx = dao.updateVote(voteVo);
-		return idx;
-	}
-
-	@Override
 	public void deleteVote(Integer v_idx) throws Exception {
 		dao.deleteVote(v_idx);
 	}
@@ -52,6 +41,7 @@ public class VoteServiceImpl implements VoteService {
 		int idx = dao.createVote(voteVo);
 		return idx;
 	}
+	
 	@Override
 	public List<VoteVO> readVoteListWithPaging(PageMaker pageMaker){
 		int totalCount = dao.getTotalVote(pageMaker.getWriter());

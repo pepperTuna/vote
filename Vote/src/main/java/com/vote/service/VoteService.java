@@ -13,8 +13,6 @@ public interface VoteService {
 	
 	public List<VoteVO> listVote() throws Exception;
 	
-	public int updateVote(HttpServletRequest request) throws Exception;
-
 	public void deleteVote(Integer v_idx) throws Exception;
 
 	public int createVote(HttpServletRequest request) throws Exception;
