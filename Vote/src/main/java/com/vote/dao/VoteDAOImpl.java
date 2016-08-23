@@ -50,21 +50,6 @@ public class VoteDAOImpl implements VoteDAO {
 	public void deleteVote(Integer v_idx) throws Exception {
 		session.update(namespace + ".deleteVote", v_idx);
 	}
-
-	@Override
-	public List<VoteVO> readVoteListWithPaging(int page, String writer) {
-		Map map = new HashMap();
-		map.put("page", page);
-		map.put("writer", writer);
-
-		if (page <= 0) {
-			page = 1;
-		}
-
-		page = (page - 1) * 10;
-
-		return session.selectList(namespace + ".readVoteListWithPaging", map);
-	}
 	
 	@Override
 	public List<VoteVO> readVoteListWithPaging(PageMaker pageMaker){

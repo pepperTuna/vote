@@ -13,8 +13,6 @@ public interface VoteService {
 	
 	public List<VoteVO> listVote() throws Exception;
 	
-	public List<VoteVO> readVoteListWithPaging(int page, String writer);
-
 	public int updateVote(HttpServletRequest request) throws Exception;
 
 	public void deleteVote(Integer v_idx) throws Exception;

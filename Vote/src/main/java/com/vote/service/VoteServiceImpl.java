@@ -28,11 +28,6 @@ public class VoteServiceImpl implements VoteService {
 	}
 
 	@Override
-	public List<VoteVO> readVoteListWithPaging(int page, String writer) {
-		return dao.readVoteListWithPaging(page, writer);
-	}
-
-	@Override
 	@Deprecated
 	public int updateVote(HttpServletRequest request) throws Exception {
 		System.out.println(request.toString());
