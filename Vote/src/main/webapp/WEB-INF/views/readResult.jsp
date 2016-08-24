@@ -7,9 +7,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<style>
+	.cno-yellow {
+		background-color: yellow;
+	}
+	
+	</style>
 	<title>설문조사 결과</title>
 </head>
 <body>
@@ -37,22 +43,22 @@
       </c:if>
       <div class='col-md-12'>
          <c:forEach items ="${list}" var="voteQuestionVO" varStatus="status">
-   				<%-- ${resultList[status.index].cno} --%>
-            <ul>
+   				<!-- ${resultList[status.index].qno}-${resultList[status.index].cno} -->
+            <dl>
                <!-- vidx = ${voteQuestionVO.vidx} -->
             <c:choose>
                <c:when test="${voteQuestionVO.cno eq '0'}">
                   <dt class='question-title'>${voteQuestionVO.qno}. ${voteQuestionVO.content}</dt>
                </c:when>
                <c:otherwise>
-                  <li id="${voteQuestionVO.cno }" class="cno" value="${voteQuestionVO.cno }">${voteQuestionVO.content}
+                  <dd id="choice-${voteQuestionVO.qno }-${voteQuestionVO.cno }" value='choice-${voteQuestionVO.qno}-${voteQuestionVO.cno}'>${voteQuestionVO.content}
                   <c:if test="${voteQuestionVO.attach ne null }">
                      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""><img src='${voteQuestionVO.attach}' class="img-thumbnail" width="50"></a>
                   </c:if>
-                  </li>
+                  </dd>
                </c:otherwise>                                                                                           
             </c:choose>
-            </ul>
+            </dl>
          </c:forEach>
          
          <!-- bootstrap.css line 1447 '0 -> 20' -->
@@ -67,7 +73,7 @@
          </address>
          </div>
    </div>
-   
+   <!--
 	<div class="container">
 		<c:forEach items="${resultList}" var="ResultVO">
 			${ResultVO.qno }번에  ${ResultVO.cno }번 대답함	<br/>
@@ -77,24 +83,24 @@
 			${VoteQuestionVO.qno }번에  ${VoteQuestionVO.cno }번 의  ${VoteQuestionVO.content } <br/>
 		</c:forEach>
 	</div>
+	-->
 </body>
 	<script>
-$(function(){
-	var list1 = new Array();
-	<c:forEach items="${resultList}" var="item1">
-	<c:if test="${item1.ruser == login.userid }">
-	list1.push("${item1.cno}");
-	</c:if>
-	</c:forEach>
-	var abc = $("ul");
-	for ( var i = 0; i < list1.length; i++) {
-		for(var j=0 ;j<abc.length;j++){
-			if(list1[i]==$("ul li:nth-child(j)").val()){
-				alert("시발");
-			};
-		}
-	}
-	
-});
+	$(function(){
+		   var list1 = new Array();
+		   <c:forEach items="${resultList}" var="item1">
+		   <c:if test="${item1.ruser == login.userid }">
+		   list1.push("choice-${item1.qno}-${item1.cno}");
+		   </c:if>
+		   </c:forEach>
+		   var abc = $("dl");
+		   for ( var i = 0; i < list1.length; i++) {
+			      for(var j=0;j<abc.length;j++){
+			         if(list1[i]==$('dd').eq(j).attr('id')){
+			            $('dd').eq(j).attr('class', 'cno-yellow');
+			         }
+			      }
+			   }
+		});
 </script>
 </html>
