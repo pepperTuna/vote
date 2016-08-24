@@ -12,24 +12,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.result.domain.ResultVO;
 import com.result.service.ResultService;
-import com.vote.domain.VoteQuestionVO;
 import com.vote.service.VoteQuestionService;
+import com.vote.service.VoteService;
 
 @Controller
 public class ResultController {
 	
 	@Inject
 	ResultService resultService;
-	VoteQuestionService voteQuestionService;
+	
+	@Inject VoteQuestionService voteQuestionService;
+	@Inject VoteService voteService;
 	
 	@RequestMapping(value="/readResult", method=RequestMethod.GET)
 	public void readResult(@RequestParam("vidx") int vidx, Model model) throws Exception{
 		// 이 부분 카운트세는걸로 변경해야함
 		
 		List<ResultVO> resultList = resultService.readResult(vidx);
-		
+		System.out.println(resultList);
 		//List<VoteQuestionVO> questionList = voteQuestionService.readQuestionResult(vidx, resultList);
-		
+		model.addAttribute(voteService.readVote(vidx));
+		model.addAttribute("list", voteQuestionService.readQuestion(vidx));
 		model.addAttribute("resultList", resultList);
 		//model.addAttribute("questionList", questionList);
 	}
