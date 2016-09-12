@@ -30,11 +30,9 @@ public class ResultController {
 		
 		List<ResultVO> resultList = resultService.readResult(vidx);
 		System.out.println(resultList);
-		//List<VoteQuestionVO> questionList = voteQuestionService.readQuestionResult(vidx, resultList);
 		model.addAttribute(voteService.readVote(vidx));
 		model.addAttribute("list", voteQuestionService.readQuestion(vidx));
 		model.addAttribute("resultList", resultList);
-		//model.addAttribute("questionList", questionList);
 	}
 	
 	@RequestMapping(value="/createResult", method=RequestMethod.POST)
