@@ -1,5 +1,5 @@
 package com.result.domain;
-
+//
 public class ResultVO {
 	private Integer ridx;
 	private String ruser;
