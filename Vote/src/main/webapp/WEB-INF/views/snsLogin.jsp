@@ -16,7 +16,6 @@
    <title>시작하기</title>
    <script>
    var msg = '${MSG}';
-
    if (msg == 'fail') {
       alert("아이디와 비밀번호를 확인하세요.");
    }
